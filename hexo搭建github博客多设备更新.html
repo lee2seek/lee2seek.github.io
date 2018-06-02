@@ -591,7 +591,7 @@
         owner: '',
         repo: '',
         oauth: {
-          client_id: '6f21774178fa991ef205# MUST HAVE, Github client id for the Gitment',
+          client_id: '6f21774178fa991ef205',
           client_secret: 'a00948c362a1b1986060ab0c703af2a1c9af1974'
           }
       });
@@ -931,7 +931,7 @@
       function renderGitment(){
         var gitment = new Gitmint({
             id: window.location.pathname, 
-            owner: 'lee2seek# MUST HAVE, Your Github ID',
+            owner: 'lee2seek',
             repo: 'git@github.com:lee2seek/gitment-blog.git',
             
             lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
@@ -941,7 +941,7 @@
             
                 client_secret: 'a00948c362a1b1986060ab0c703af2a1c9af1974',
             
-                client_id: '6f21774178fa991ef205# MUST HAVE, Github client id for the Gitment'
+                client_id: '6f21774178fa991ef205'
             }});
         gitment.render('gitment-container');
       }
