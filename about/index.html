@@ -363,7 +363,7 @@
       $("#gitment_title").attr("style", "display:none");
       $("#container").attr("style", "").addClass("gitment_container");
       var gitment = new Gitment({
-        id: '<%= page.date %>',
+        id: document.location.href,
         theme: myTheme,
         owner: 'lee2seek',
         repo: 'gitment-blog',
@@ -724,7 +724,11 @@
       }
 
       
-      renderGitment();
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
       
       </script>
     
