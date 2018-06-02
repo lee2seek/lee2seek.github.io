@@ -363,7 +363,7 @@
       $("#gitment_title").attr("style", "display:none");
       $("#container").attr("style", "").addClass("gitment_container");
       var gitment = new Gitment({
-        id: '<%= page.date %>',
+        id: window.location.pathname.replace(/(\/$)/g, ''),
         theme: myTheme,
         owner: 'lee2seek',
         repo: 'blogComments',
