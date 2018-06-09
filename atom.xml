@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lee2seek/github.io/"/>
-  <updated>2018-06-02T18:55:00.927Z</updated>
+  <updated>2018-06-09T16:42:03.000Z</updated>
   <id>https://lee2seek/github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CS231n Convolutional Neural Networks for Visual Recognition</title>
+    <link href="https://lee2seek/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html"/>
+    <id>https://lee2seek/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html</id>
+    <published>2018-06-09T16:42:03.000Z</published>
+    <updated>2018-06-09T16:42:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这是一篇翻译文章<br>来源: <a href="https://cs231n.github.io/convolutional-networks/" target="_blank" rel="noopener">CS231n Convolutional Neural Networks for Visual Recognition</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;这是一篇翻译文章&lt;br&gt;来源: &lt;a href=&quot;https://cs231n.github.io/convolutional-networks/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CS231n Convolution
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>hexo搭建github博客多设备更新</title>
