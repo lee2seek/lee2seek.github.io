@@ -348,10 +348,7 @@
           
 
   
-     
-     <div id="gitment-container"></div>
-
-  
+     <div id="gitalk-container"></div>
 
 
 
@@ -412,7 +409,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -505,7 +502,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共891字</span>
+  <span class="post-count">博客全站共3.1k字</span>
 </div>
 
         
@@ -644,45 +641,26 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: '<%= page.date %>', 
-            owner: 'lee2seek',
-            repo: 'blogComments',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'a00948c362a1b1986060ab0c703af2a1c9af1974',
-            
-                client_id: '6f21774178fa991ef205'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+		var gitalk = new Gitalk({
+		  clientID: '6f21774178fa991ef205',
+		  clientSecret: 'a00948c362a1b1986060ab0c703af2a1c9af1974',
+		  repo: 'blogComments',
+		  owner: 'lee2seek',
+		  admin: ['lee2seek'],
+		  id: location.pathname,
+		  distractionFreeMode: 'true'
+		})
+		gitalk.render('gitalk-container')
+    </script>
 
 
 
@@ -1019,6 +997,8 @@
   
 
   
+  
+
 
   
 
