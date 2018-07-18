@@ -91,31 +91,31 @@
 <meta name="keywords" content="RNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding LSTM Networks">
-<meta property="og:url" content="https://lee2seek/github.io/Understanding-LSTM-Networks.html">
+<meta property="og:url" content="https://lightnine/github.io/Understanding-LSTM-Networks.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="这是一篇译文,原文地址.如果英文可以,建议直接看英文. 循环神经网络(Recurrent Neural Networks)在我们思考时,我们不会从头开始,肯定会在思考时加入之前的知识.就如同当你在阅读当前的博客时,你读的每个单词都是基于前面的单词.你不会扔掉所有的东西,然后在从头开始.你的想法有持久性.传统的神经网络不能使用之前信息.假设你使用传统神经网络来将一部电影中的正在发生的事件分类,怎么使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/RNN-rolled.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/RNN-unrolled.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/RNN-shorttermdepdencies.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/RNN-longtermdependencies.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-SimpleRNN.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-chain.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM2-notation.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-C-line.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-gate.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-focus-f.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-focus-i.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-focus-C.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-focus-o.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-var-peepholes.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-var-tied.png">
-<meta property="og:image" content="https://lee2seek/Understanding-LSTM-Networks/LSTM3-var-GRU.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/RNN-rolled.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/RNN-unrolled.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/RNN-shorttermdepdencies.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/RNN-longtermdependencies.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-SimpleRNN.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-chain.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM2-notation.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-C-line.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-gate.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-focus-f.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-focus-i.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-focus-C.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-focus-o.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-var-peepholes.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-var-tied.png">
+<meta property="og:image" content="https://lightnine/Understanding-LSTM-Networks/LSTM3-var-GRU.png">
 <meta property="og:updated_time" content="2018-07-18T07:54:17.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding LSTM Networks">
 <meta name="twitter:description" content="这是一篇译文,原文地址.如果英文可以,建议直接看英文. 循环神经网络(Recurrent Neural Networks)在我们思考时,我们不会从头开始,肯定会在思考时加入之前的知识.就如同当你在阅读当前的博客时,你读的每个单词都是基于前面的单词.你不会扔掉所有的东西,然后在从头开始.你的想法有持久性.传统的神经网络不能使用之前信息.假设你使用传统神经网络来将一部电影中的正在发生的事件分类,怎么使">
-<meta name="twitter:image" content="https://lee2seek/Understanding-LSTM-Networks/RNN-rolled.png">
+<meta name="twitter:image" content="https://lightnine/Understanding-LSTM-Networks/RNN-rolled.png">
 
 
 
@@ -145,7 +145,7 @@
 
 
 
-  <link rel="canonical" href="https://lee2seek/github.io/Understanding-LSTM-Networks.html"/>
+  <link rel="canonical" href="https://lightnine/github.io/Understanding-LSTM-Networks.html"/>
 
 
 
@@ -334,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lee2seek/github.io/Understanding-LSTM-Networks.html">
+    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/Understanding-LSTM-Networks.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liang">
@@ -502,7 +502,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lee2seek/github.io/Understanding-LSTM-Networks.html" title="Understanding LSTM Networks">https://lee2seek/github.io/Understanding-LSTM-Networks.html</a>
+    <a href="https://lightnine/github.io/Understanding-LSTM-Networks.html" title="Understanding LSTM Networks">https://lightnine/github.io/Understanding-LSTM-Networks.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
