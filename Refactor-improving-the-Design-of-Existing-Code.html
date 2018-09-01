@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="前言Refactor-improving the Design of Existing Code(重构-改善既有代码的设计),这是Martin Fowler的一本书.主要是针对Java语言.书已经出版多年了,买这本书也有一年多了,但是一直只看了第一章.最近因为工作不是很忙,就拾起来读了.这里主要是记录下读这本书的一些感想以及收获.读这本书有个收获,重构不单单只是修改函数名称,重命名变量名称那么简单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-30T08:28:25.238Z">
+<meta property="og:updated_time" content="2018-09-01T08:49:34.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Refactor-improving the Design of Existing Code">
 <meta name="twitter:description" content="前言Refactor-improving the Design of Existing Code(重构-改善既有代码的设计),这是Martin Fowler的一本书.主要是针对Java语言.书已经出版多年了,买这本书也有一年多了,但是一直只看了第一章.最近因为工作不是很忙,就拾起来读了.这里主要是记录下读这本书的一些感想以及收获.读这本书有个收获,重构不单单只是修改函数名称,重命名变量名称那么简单">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-30T16:28:25+08:00">
-                2018-06-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-01T16:49:34+08:00">
+                2018-09-01
               </time>
             
           </span>
@@ -453,14 +453,14 @@
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在我们重构之前,一定要有合适的测试.在Java中,我们经常用的就是Junit和TestNG了.其中Junit主要是用来做单元测试,而TestNG主要是功能测试或者集成测试.如果我们是开发人员,可能使用Junit比较多,不过TestNG一般也会用到.在我们重构完成之后,一定要跑测试用例,跑通了所有的测试用例,这项重构才算是完成.</p>
 <h3 id="代码的坏味道"><a href="#代码的坏味道" class="headerlink" title="代码的坏味道"></a>代码的坏味道</h3><ol>
 <li>重复代码<br> 遇到相同的程序结构,应该想办法将它们合二为一,这样程序会变得更好</li>
-<li>过长函数<br> 函数的代码行数不宜过长,并且函数的命名应该体现出函数做了什么而不是表明怎么做</li>
-<li>过大的类<br> 当类过大时,我们可以采取Extract class 或者Extract Subclass来减小类的大小</li>
-<li>过长的参数列<br> 将函数的参数可以用对象来进行传递</li>
-<li>发散式变化<br> 如果某个类经常因为不同的原因在不同的方向上发生变化,那么这个类就产生了发散式变化.理想情况是针对外界的某一个变化产生的所有相应修改,都应该发生在单一类中.采用 <strong>Extract Class</strong>将因为特定原因造成的所有变化提炼到另一个类中</li>
-<li>霰弹式修改<br> 如果遇到某种变化,都必须在许多不同的类内做出许多小修改,那么就产生了霰弹式修改.遇到这种情况,应该使用<strong>Move Method</strong>和<strong>Move Field</strong>将所有的修改集中在一个类中.<br> 发散式修改是指”一个类受多种变化的影响”,而霰弹式修改是指”一种变化引发多个类的相应修改”.理想情况是外界变化与需要修改的类趋于一一对应.</li>
-<li>依恋情结<br> 函数对某个类的兴趣高过对自己所处类的兴趣.这时候我们应该将此函数移动到此函数对应的类中.</li>
-<li>数据泥团<br> 两个类中相同的字段,许多函数签名中相同的参数.这些总是绑定在一起出现的数据应该拥有属于它们的对象</li>
-<li>基本类型偏执<br> 我们有时候可以用对象来替代基本类型,比如当表示由一个起始值和一个结束值组成的range类,一个币种的money类.我们可以创建对应的小对象.</li>
+<li>过长函数<br>函数的代码行数不宜过长,并且函数的命名应该体现出函数做了什么而不是表明怎么做</li>
+<li>过大的类<br>当类过大时,我们可以采取Extract class 或者Extract Subclass来减小类的大小</li>
+<li>过长的参数列<br>将函数的参数可以用对象来进行传递</li>
+<li>发散式变化<br>如果某个类经常因为不同的原因在不同的方向上发生变化,那么这个类就产生了发散式变化.理想情况是针对外界的某一个变化产生的所有相应修改,都应该发生在单一类中.采用 <strong>Extract Class</strong>将因为特定原因造成的所有变化提炼到另一个类中</li>
+<li>霰弹式修改<br>如果遇到某种变化,都必须在许多不同的类内做出许多小修改,那么就产生了霰弹式修改.遇到这种情况,应该使用<strong>Move Method</strong>和<strong>Move Field</strong>将所有的修改集中在一个类中.<br>发散式修改是指”一个类受多种变化的影响”,而霰弹式修改是指”一种变化引发多个类的相应修改”.理想情况是外界变化与需要修改的类趋于一一对应.</li>
+<li>依恋情结<br>函数对某个类的兴趣高过对自己所处类的兴趣.这时候我们应该将此函数移动到此函数对应的类中.</li>
+<li>数据泥团<br>两个类中相同的字段,许多函数签名中相同的参数.这些总是绑定在一起出现的数据应该拥有属于它们的对象</li>
+<li>基本类型偏执<br>我们有时候可以用对象来替代基本类型,比如当表示由一个起始值和一个结束值组成的range类,一个币种的money类.我们可以创建对应的小对象.</li>
 <li>switch惊悚现身<br>在面向对象程序中尽量少用switch语句,因为switch容易造成重复.而且修改switch条件时,需要找到所有的switch来进行修改</li>
 <li>平行继承体系</li>
 <li>冗余类<br>消除没有用的类</li>
@@ -537,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/notebook-jupyter-cookbook.html" rel="next" title="notebook-jupyter-cookbook">
-                <i class="fa fa-chevron-left"></i> notebook-jupyter-cookbook
+              <a href="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html" rel="next" title="CS231n Convolutional Neural Networks for Visual Recognition">
+                <i class="fa fa-chevron-left"></i> CS231n Convolutional Neural Networks for Visual Recognition
               </a>
             
           </div>
@@ -638,7 +638,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -758,7 +758,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.1k字</span>
+  <span class="post-count">博客全站共15.9k字</span>
 </div>
 
         
