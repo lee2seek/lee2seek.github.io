@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="CNN," />
+  <meta name="keywords" content="线性回归算法,局部加权回归算法,岭回归算法,lasso回归算法," />
 
 
 
@@ -87,25 +87,29 @@
 
 
 
-<meta name="description" content="这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来来源: CS231n Convolutional Neural Networks for Visual Recognition  CNN卷积神经网络跟一般的神经网络是非常相似的.它们都由神经元组成,并且这些神经元上都有需要学习的权重和偏置项.每个神经元接收输入,执行点积,然后可选择的将输出进行非线性运算.整个网络表示了一个">
-<meta name="keywords" content="CNN">
+<meta name="description" content="线性回归算法 注：本文所有代码和数据均在个人github下click me  回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。线性回归算法包括很多种变形，这里提到的线性回归算法是其中的几种典型算法。在实际应用中，我们采用线性算法可以预测商品的价格，预测房子的房价等等，虽然线性回归算法比较简单，但是在实际中还是有很多的使用的。  在机器学习中，我们要紧盯三件事情。第一">
+<meta name="keywords" content="线性回归算法,局部加权回归算法,岭回归算法,lasso回归算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS231n Convolutional Neural Networks for Visual Recognition">
-<meta property="og:url" content="https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html">
+<meta property="og:title" content="线性回归算法">
+<meta property="og:url" content="https://lightnine/github.io/线性回归算法.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来来源: CS231n Convolutional Neural Networks for Visual Recognition  CNN卷积神经网络跟一般的神经网络是非常相似的.它们都由神经元组成,并且这些神经元上都有需要学习的权重和偏置项.每个神经元接收输入,执行点积,然后可选择的将输出进行非线性运算.整个网络表示了一个">
+<meta property="og:description" content="线性回归算法 注：本文所有代码和数据均在个人github下click me  回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。线性回归算法包括很多种变形，这里提到的线性回归算法是其中的几种典型算法。在实际应用中，我们采用线性算法可以预测商品的价格，预测房子的房价等等，虽然线性回归算法比较简单，但是在实际中还是有很多的使用的。  在机器学习中，我们要紧盯三件事情。第一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neural_net2.jpeg">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/cnn.jpeg">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/convnet.jpeg">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/depthcol.jpeg">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neuron_model.jpeg">
-<meta property="og:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/stride.jpeg">
-<meta property="og:updated_time" content="2018-06-09T16:42:03.000Z">
+<meta property="og:image" content="https://lightnine/线性回归算法/随机梯度下降.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/损失函数的导数.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/概率分布.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/似然函数.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/对数似然函数.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/线性回归测试.png">
+<meta property="og:image" content="https://lightnine/线性回归算法/局部加权线性回归.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/局部加权回归拟合.png">
+<meta property="og:image" content="https://lightnine/线性回归算法/k值的影响.PNG">
+<meta property="og:image" content="https://lightnine/线性回归算法/岭回归.png">
+<meta property="og:updated_time" content="2018-09-09T08:16:26.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS231n Convolutional Neural Networks for Visual Recognition">
-<meta name="twitter:description" content="这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来来源: CS231n Convolutional Neural Networks for Visual Recognition  CNN卷积神经网络跟一般的神经网络是非常相似的.它们都由神经元组成,并且这些神经元上都有需要学习的权重和偏置项.每个神经元接收输入,执行点积,然后可选择的将输出进行非线性运算.整个网络表示了一个">
-<meta name="twitter:image" content="https://lightnine/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neural_net2.jpeg">
+<meta name="twitter:title" content="线性回归算法">
+<meta name="twitter:description" content="线性回归算法 注：本文所有代码和数据均在个人github下click me  回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。线性回归算法包括很多种变形，这里提到的线性回归算法是其中的几种典型算法。在实际应用中，我们采用线性算法可以预测商品的价格，预测房子的房价等等，虽然线性回归算法比较简单，但是在实际中还是有很多的使用的。  在机器学习中，我们要紧盯三件事情。第一">
+<meta name="twitter:image" content="https://lightnine/线性回归算法/随机梯度下降.PNG">
 
 
 
@@ -135,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html"/>
+  <link rel="canonical" href="https://lightnine/github.io/线性回归算法.html"/>
 
 
 
 
 
-  <title>CS231n Convolutional Neural Networks for Visual Recognition | 个人博客</title>
+  <title>线性回归算法 | 个人博客</title>
   
 
 
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html">
+    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/线性回归算法.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liang">
@@ -341,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CS231n Convolutional Neural Networks for Visual Recognition</h1>
+          <h1 class="post-title" itemprop="name headline">线性回归算法</h1>
         
 
         <div class="post-meta">
@@ -353,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T00:42:03+08:00">
-                2018-06-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T23:41:13+08:00">
+                2018-09-05
               </time>
             
 
@@ -369,8 +373,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-10T00:42:03+08:00">
-                2018-06-10
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-09T16:16:26+08:00">
+                2018-09-09
               </time>
             
           </span>
@@ -388,8 +392,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">deep learning</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -419,7 +423,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,239
+                  3,334
                 </span>
               
 
@@ -435,7 +439,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  12
                 </span>
               
             </div>
@@ -455,45 +459,50 @@
       
 
       
-        <blockquote>
-<p>这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来<br>来源: <a href="https://cs231n.github.io/convolutional-networks/" target="_blank" rel="noopener">CS231n Convolutional Neural Networks for Visual Recognition</a></p>
+        <h1 id="线性回归算法"><a href="#线性回归算法" class="headerlink" title="线性回归算法"></a>线性回归算法</h1><blockquote>
+<p>注：本文所有代码和数据均在个人github下<a href="https://github.com/lightnine/machine-learning/blob/master/src/regression/regression.py" target="_blank" rel="noopener">click me</a></p>
 </blockquote>
-<h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><p>卷积神经网络跟一般的神经网络是非常相似的.它们都由神经元组成,并且这些神经元上都有需要学习的权重和偏置项.每个神经元接收输入,执行点积,然后可选择的将输出进行非线性运算.整个网络表示了一个可微的得分函数:即从原始的图像像素到对应的类.两者都有一个损失函数(例如:SVM/Softmax),并且在一般神经网络中用到的技术也能应用到CNN中.<br>两者的区别在哪里呢?ConvNet网络假设输入是图像,所以我们能够将某些属性编码到网络结构中.这使得前馈函数更有效率并且能极大的减少网络中的参数.</p>
-<h1 id="CNN结构概览"><a href="#CNN结构概览" class="headerlink" title="CNN结构概览"></a>CNN结构概览</h1><p><em>回顾</em>:在一般的神经网络中,神经网络接收一个输入(一个向量),然后经过一系列的隐藏层进行转换.每个隐藏层是由一组神经元组成,每个神经元都与前一层的所有神经元相连,属于同一层的神经元完全独立并且不共享任何连接.最后一层是输出层,在分类问题中,它代表了类的得分.<br>一般的神经网络不能很好的扩展到完整的图像.在CIFAR-10中,一副图像的大小是32$\times$32$\times$3,所以隐藏层中的一个神经元上将会有32$\times$32$\times$3=3072个权重.参数的数量仍然可以接受,但是全连接结构不能扩展到更大的图像上了.例如,如果图像的大小为200$\times$200$\times$3,那么一个神经元将需要200$\times$200$\times$3=120000个权重.可见,全连接神经网络需要的参数将会非常多.这会导致过拟合.<br>卷积神经网络充分利用了输入是图像的事实,并且用一个更加合理的方式约束了神经网络的结构.特别的,与一般的神经网络不同,卷积神经网络各层由三维排列的神经元组成:宽度,高度,深度(注意,这里的深度指的是激活的第三维,而不是整个神经网络的深度).例如,在CIFAR-10中的输入图像的维度是32$\times$32$\times$3.我们很快会看到,当前层的神经元仅仅连接前一层中的部分神经元.此外,对于CIFAR-10最终的输出层的维度是1$\times$1$\times$10,因为ConvNet最后会将整个图像转换为一个类得分向量,下面是可视化:<br><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neural_net2.jpeg" alt="常规神经网络"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/cnn.jpeg" alt="ConvNet"></div></div></div></div><br>上图表示一个三层的神经网络,下图表示卷积神经网络.</p>
+<p>回归算法一般是针对预测是连续的情况下，对于预测值是离散的，采用的算法是分类算法。线性回归算法包括很多种变形，这里提到的线性回归算法是其中的几种典型算法。在实际应用中，我们采用线性算法可以预测商品的价格，预测房子的房价等等，虽然线性回归算法比较简单，但是在实际中还是有很多的使用的。</p>
 <blockquote>
-<p>A ConvNet is made up of Layers. Every Layer has a simple API: It transforms an input 3D volume to an output 3D volume with some differentiable function that may or may not have parameters.</p>
+<p>在机器学习中，我们要紧盯三件事情。第一，算法的损失函数；第二，采用什么求值算法求损失函数的最小值；第三，算法的评价指标</p>
 </blockquote>
-<h1 id="ConvNet-层"><a href="#ConvNet-层" class="headerlink" title="ConvNet 层"></a>ConvNet 层</h1><p>就像我们上面描述的,一个简单的ConvNet是一系列层组成,ConvNet的每层通过一个可微的函数将输入转化到输出.ConvNet主要由卷积层,池化层和全连接层组成.下面是一个针对CIFAR-10的简单例子:</p>
-<ul>
-<li>INPUT(32$\times$32$\times$3):输入是原始图像的像素,一副图像的宽是32,长是32,并且有三个颜色通道R,G,B</li>
-<li>卷积层:当前层的神经元只连接前一层的部分神经元.如果我们使用12个过滤器,则经过卷积层后的维度是[32$\times$32$\times$12]</li>
-<li>RELU:对于输入采用ReLu激活函数,并不会改变输入维度,如果前一个维度是[32$\times$32$\times$12],则经过ReLu之后仍然是[32$\times$32$\times$12]</li>
-<li>POOL:池化层会在空间维度上执行下采样,这会导致维度变化,[16$\times$16$\times$12],但是注意最后一维没有改变</li>
-<li><p>FC(全连接层):这是一个全连接的结构,最后的输出是[1$\times$1$\times$10].<br>卷积神经网络就是将原始的像素图像经过一层一层的计算,最后得到最终的分类得分.注意有些层需要参数,而有些层不需要参数.CONV/FC层不仅仅对于输入进行激活,同时需要将权重和偏置作用在输入上.而RELU/POOL只是一个固定的函数,并没有参数.<br>总结:</p>
-</li>
-<li><p>卷积神经网络就是一系列层组成,将输入图像体积转换为输出体积(体积表面了维度)</p>
-</li>
-<li>卷积神经网路包括完全不同的层(e.g. CONV/FC/RELU/POOl)</li>
-<li>每一层通过一个可微的函数将3D volume的输入转换为3D volume的输出</li>
-<li>有些层需要参数,有些不需要(e.g. CONV/FC 需要, RELU/POOlL不需要)</li>
-<li>有些层需要额外的超参数,有些不需要(e.g. CONV/FC/POOL需要,RELU不需要)</li>
-</ul>
-<img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/convnet.jpeg" title="卷积神经网络结构图">
-<p>因为无法很难画出3D的部分,所以这里每一层只展示了深度部分的一片.最后给出了得分最高的五个标签.这里展示的是一个很小的 VGG网络.<a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">查看详细展示</a></p>
-<h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>卷积层是卷积神经网络的核心部分,并且涉及了大量的计算.卷积层使用过滤器对于原图像进行卷积,过滤器每次只能针对整副图像的一部分进行计算,所以我们需要移动过滤器,遍历整个图像.这里过滤器的大小又叫做神经元的接收域.<br><em>Example 1</em>:假设输入为[32$\times$32$\times$3],过滤器大小为5$\times$5,那么卷积层中的某个神经元需要的参数为5$\times$5$\times$3 + 1=76.为什么需要这么多的参数呢?针对颜色通道R,当前过滤器对应的局部区域的点是5$\times$5=25个,有三个通道,所有总的参数为75,另外再加一个偏置项,所有一个神经元总共需要76个参数.注意这里的深度为3,这是因为输入的深度是3.</p>
-<h2 id="Example-2-假设输入为-16-times-16-times-20-过滤器大小为3-times-3-那么卷积层中每个神经元都需要3-3-20-1-180个参数"><a href="#Example-2-假设输入为-16-times-16-times-20-过滤器大小为3-times-3-那么卷积层中每个神经元都需要3-3-20-1-180个参数" class="headerlink" title="Example 2:假设输入为[16$\times$16$\times$20],过滤器大小为3$\times$3,那么卷积层中每个神经元都需要3*3*20 + 1=180个参数."></a><em>Example 2</em>:假设输入为[16$\times$16$\times$20],过滤器大小为3$\times$3,那么卷积层中每个神经元都需要3*3*20 + 1=180个参数.</h2><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/depthcol.jpeg" title="卷积层"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neuron_model.jpeg" title="神经元"></div></div></div></div>
-<p>第一张图展示了卷积层,可以看到一个神经元连接了原图像的局部区域,但是连接了所有的深度(这是是三个颜色通道).这里展示了五个神经元,这五个神经元都连接到了图像的同一个局域上.第二张图展示了神经元的计算.<br><strong>Spatial arrangement</strong> 前面我们仅仅讨论了卷积层中的每个神经元如何连接到前一层,我们还没有讨论在卷积层的输出中有多少个神经元.深度,步长,0值填充这些超参数控制着卷积层的输出的大小</p>
-<ol>
-<li>卷积层输出的深度等于过滤器的数量,而每个过滤器就是去寻找输入到卷积层数据的不同之处.如果输入是原始图像,那么过滤器就是去寻找不同方向的边,颜色等.</li>
-<li>步长是过滤器移动的长度,一般常用的是1和2</li>
-<li>0值填充就是在卷积层的输入的边界上填充0值,使用0值填充使得我们能够控制经过卷积层之后的空间大小.<br>下面的公式可以用来计算卷积层输出的空间大小<script type="math/tex; mode=display">(W - F + 2P)/S + 1</script>其中W(输入数据的大小),F(卷积层神经元的接收域大小),S(步长),P(零值填充的宽度).例如输入为7$\times$7,过滤器为3$\times$3,步长为1,不填充,则得出输出为5$\times$5.当步长变为2时,那么输出变为3$\times$3.</li>
+<h2 id="一般线性回归算法"><a href="#一般线性回归算法" class="headerlink" title="一般线性回归算法"></a>一般线性回归算法</h2><p>一般的线性回归又叫做最小二乘算法，最小二乘是因为算法的损失函数是最小二乘的，损失函数如下：</p>
+<script type="math/tex; mode=display">J(\theta)={\frac 12}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2 \tag {1.1}</script><p>其中$h_\theta(x^{(i)})$是算法针对数据的预测值，而$y^{(i)}$是数据的真实值，$m$表示训练数据的条数，而${\frac 12}$是为了此公式求导方便而加入的。而$\theta$是算法的参数，在这里就是线性回归的权重值。通过此公式我们可以得到，线性回归算法的损失函数就是针对每个样本计算预测值和真实值得差，然后将差求平方，之后将全体样本的差平方相加即得到损失函数。<br>针对损失函数，我们有两种算法可以求取损失函数的最小值。</p>
+<h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>梯度下降算法的一般形式：</p>
+<script type="math/tex; mode=display">\theta_j: = \theta_j - \alpha{\frac \partial  {\partial\theta_j}}J(\theta) \tag {1.2}</script><p>这里写的是梯度下降算法的标量形式。这个公式描述了梯度下降算法是如何更新算法的参数的，其中$\alpha$是参数的更新步长。可以看到这里的关键是如何求取损失函数关于参数j的偏导数。<br>将损失函数带入到梯度下降算法,即公式$(1.2)$中，并且求导，可以得到下式：</p>
+<script type="math/tex; mode=display">\theta_j:= \theta_j + \alpha{\sum_{i=1}^m (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}} \tag {1.3}</script><p>我们重复的使用公式$(1.3)$直到达到收敛条件，即可以求得线性回归算法中的参数值。<br>从公式中，可以看到用真实值和预测值之间的差值来更新参数值，这种方式或者思想在很多的机器学习算法中可以看到，包括深度学习的后向传播算法。同时，可以看到每一次的迭代都要使用整个数据集。这种方式叫做批量梯度下降算法。还有一种方式可以求取$\theta$值，叫做随机梯度下降算法，算法如下：<br><img src="/线性回归算法/随机梯度下降.PNG" title="随机梯度下降算法"><br>从中我们可以看到，随机梯度下降算法每次采用一个训练样本取更新所有的参数值，注意那里的(for every j)。当训练样本很多时，相比于批量梯度下降算法，随机梯度下降算法能够更快的更新算法的参数值，并且能够更快的逼近损失函数的最小值。</p>
+<h3 id="代数解"><a href="#代数解" class="headerlink" title="代数解"></a>代数解</h3><p>我们将损失函数用向量表示，如下所示：</p>
+<script type="math/tex; mode=display">J(\theta) = {\frac 12}(X\theta - \vec{y})^T(X\theta - \vec{y}) \tag{1.4}</script><p>公式中的$X$表示训练数据的矩阵。因为损失函数是凸二次函数，所以只有一个最小值，所以导数为0的点就是损失函数的最小值。<br>具体的推导过程如下(主要利用了矩阵的迹运算)：<br><img src="/线性回归算法/损失函数的导数.PNG" title="推导过程"><br>令导数等于0，从而得到：</p>
+<script type="math/tex; mode=display">\theta = (X^TX)^{(-1)}X^T\vec{y} \tag{1.5}</script><h3 id="回归模型的概率解释"><a href="#回归模型的概率解释" class="headerlink" title="回归模型的概率解释"></a>回归模型的概率解释</h3><p>大家想过没有，为什么在线性回归模型里面选择最小二乘作为损失函数？接下来从概率的角度来解释选择最小二乘作为损失函数的原因。<br>首先，假设目标变量和输入数据存入如下的关系：</p>
+<script type="math/tex; mode=display">y^(i) = \theta^Tx^{(i)} + \epsilon^{(i)} \tag{1.6}</script><p>这里的$\epsilon^{(i)}$是误差项，包括模型未考虑到影响目标变量的因素和随机噪声。<br>接下来假设，误差项相互独立同分布，并且服从高斯分布(即正态分布)</p>
+<blockquote>
+<p>为什么要假设误差项服从高斯分布? 第一是因为采用高斯分布，在数学上处理会比较简单；第二是因为根据中心极限定理，独立的随机变量的和，其总的影响接近高斯分布</p>
+</blockquote>
+<p>误差项的概率密度函数为：</p>
+<script type="math/tex; mode=display">p(\epsilon^{(i)}) = {\frac 1{\sqrt{2\pi}}}exp(-{\frac {(\epsilon^{(i)})^2} 2\sigma^2}) \tag {1.7}</script><p>根据公式$(1.6)$和公式$(1.7)$,我们可以得出如下结论：<br><img src="/线性回归算法/概率分布.PNG" title="概率分布"><br>在公式中，$\theta$不是随机变量，而是实际存在的值，虽然我们不知道真实值是多少。$p(y^{(i)}|x^{(i)};\theta)$的含义是给定$x^{(i)}$,参数设定为$\theta$时,<script type="math/tex">y^{(i)}</script>的概率密度。注意公式中用的分号。<br>数据的概率是由$p(\vec{y} | X;\theta)$给出的，而总的概率可以看成是在固定$\theta$时，关于$\vec{y}$的函数。换个角度，我们想要将这个函数明确的看成是关于$\theta$的函数，所以我们将其称作似然函数，从而我们得到关于$\theta$的似然函数：</p>
+<blockquote>
+<p>似然(likelihood)和概率(probability)实际上是一个东西，但是似然函数是对参数$\theta$定义的，为了加以区分，使用了似然这一术语。我们可以说参数的似然，数据的概率，但不能说数据的似然，参数的概率。</p>
+</blockquote>
+<script type="math/tex; mode=display">L(\theta) = L(\theta;X,\vec{y}) = p(\vec{y}|X;\theta)</script><p>极大似然估计就是选择$\theta$,使参数的似然函数最大化，也就是选择参数使得已有样本的出现概率最大。<br>因为$L(\theta)$是严格单调递增的，并且对数函数也是递增的，所以取对数，得到的$\theta$跟不取对象是一样的。<br><img src="/线性回归算法/似然函数.PNG" title="似然函数"><br>对数似然函数$\cal l(\theta)$:<br><img src="/线性回归算法/对数似然函数.PNG" title="对数似然函数"><br>最大化似然函数，就是最大化对数似然函数，即最小化</p>
+<script type="math/tex; mode=display">{\frac 12}{\sum\limits_{i=1}^{m}}(y^{(i)} - \theta^Tx^{(i)})^2</script><p>这个式子刚好是线性回归算法中采用的损失函数。总结一下，最小二乘回归模型刚好就是在假设了误差独立同服从正态分布后，得到的最大似然估计。同时注意到，正态分布中的方差$\sigma^2$的取值对模型并没有影响。</p>
+<h3 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h3><h4 id="代数解实现线性回归算法"><a href="#代数解实现线性回归算法" class="headerlink" title="代数解实现线性回归算法"></a>代数解实现线性回归算法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">standard_regression</span><span class="params">(x_arr, y_arr)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这里直接采用代数解直接求取权重大小.这里有个条件是xTx的逆必须存在,</span></span><br><span class="line"><span class="string">    如果不存在,则直接返回</span></span><br><span class="line"><span class="string">    :param x_arr:</span></span><br><span class="line"><span class="string">    :param y_arr:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    x_mat = np.mat(x_arr)</span><br><span class="line">    y_mat = np.mat(y_arr).T</span><br><span class="line">    xTx = x_mat.T * x_mat</span><br><span class="line">    <span class="keyword">if</span> np.linalg.det(xTx) == <span class="number">0.0</span>:</span><br><span class="line">        print(<span class="string">"矩阵是奇异的,逆不存在"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ws = xTx.I * (x_mat.T * y_mat)</span><br><span class="line">    <span class="keyword">return</span> ws</span><br></pre></td></tr></table></figure>
+<p>根据<code>standard_regression</code>函数可以直接求取算法的权重。然后根据权重就可以求得数据的预测结果，这里选择的数据在<a href="https://github.com/lightnine/machine-learning/blob/master/src/regression/data/ex0.txt" target="_blank" rel="noopener">点我</a><br>画出的图像如下：<br><img src="/线性回归算法/线性回归测试.png" title="测试"><br>直线为拟合直线，散点是真实值。</p>
+<h4 id="随机梯度下降实现线性回归"><a href="#随机梯度下降实现线性回归" class="headerlink" title="随机梯度下降实现线性回归"></a>随机梯度下降实现线性回归</h4><p>由于代码篇幅比较长，所以可以直接上我的github上面看。<a href="https://github.com/lightnine/machine-learning/blob/master/src/regression/regression_sgd.py" target="_blank" rel="noopener">代码</a></p>
+<h2 id="局部加权线性回归算法"><a href="#局部加权线性回归算法" class="headerlink" title="局部加权线性回归算法"></a>局部加权线性回归算法</h2><img src="/线性回归算法/局部加权线性回归.PNG" title="局部加权线性回归">
+<p>每个点都对应一个不同的$\theta$，利用$\theta$计算预测值。<br>下面我们用刚才介绍的局部加权线性回归来拟合一下这个模型，简单回顾一下过程：<br>1.用高斯核函数计算出第ｉ个样本处，其它所有样本点的权重Ｗ<br>2.用权重ｗ对第ｉ个样本作加权线性回归，得到回归方程，即拟合的直线方程<br>3.用刚才得到的经验回归直线计算出xi处的估计值$y^i$<br>4.重复一至三步，得到每个样本点的估计值</p>
+<p>同时,从计算公式中，可以看到对于每个点的预测值，需要利用所有的数据样本进行计算。如果数据量比较大，计算量就会是一个大问题。<br>相比于上面提到线性回归算法(<strong>参数算法</strong>)，局部加权线性回归算法是<strong>非参数算法</strong>。</p>
+<h3 id="参数算法vs非参数算法"><a href="#参数算法vs非参数算法" class="headerlink" title="参数算法vs非参数算法"></a>参数算法vs非参数算法</h3><p>引用<a href="https://zhuanlan.zhihu.com/p/26012348" target="_blank" rel="noopener">地址</a></p>
+<blockquote>
+<p>参数算法：<br>如果我们对所要学习的问题有足够的认识，具备一定的先验知识，此时我们一般会假定要学习的目标函数f(x)或分布P(y|x)的具体形式。然后，通过训练数据集，基于ERM、SRM、MLE、MAP等学习策略，可以估计出f(x)或P(y|x)中含有的未知参数。一旦未知参数估计完毕，训练数据一般来说，就失去其作用了，因为这些估计出来的参数就是训练数据的浓缩。通过这种方式建立起来的模型就是参数模型。参数模型的一个很重要的特点是，如果对于模型的假设正确，那么只需要很少的训练数据就可以从假设空间中学出一个很好的模型。但是，如果模型的假设错误，那么无论训练的数据量有多大，甚至趋于无穷大，学出的模型都会与实际模型出现不可磨灭的偏差。感知机、逻辑斯特回归、高斯判别分析、朴素贝叶斯、线性支持向量机都属于参数模型。对于神经网络来说，当固定了隐层的数目以及每一层神经元的个数，它也属于参数模型。但由于隐层数目与每一层神经元个数的不确定性，很多时候，神经网络都被归类为半参数模型。<br>非参数算法：<br>当我们对所要学习的问题知之甚少，此时我们一般不会对潜在的模型做过多的假设。在面对预测任务的时候，我们通常会用上所有的训练数据。例如简单的核密度估计(KDE)的表达式中，就带有所有训练数据的信息。通过这种方式建立的模型就是非参数模型。非参数模型的一个很重要的特点就是：let the data speak for itself. 正因为如此，非参数模型的存储开销、计算开销都会比参数模型大的多。但是，由于不存在模型的错误假定问题，可以证明，当训练数据量趋于无穷大的时候，非参数模型可以逼近任意复杂的真实模型。这正是非参数模型诱人的一点。另外需要说明的一点是，非参数模型之所以叫做非参数，并不是因为模型中没有参数。实际上，非参数模型中一般会含有一个或多个超参数，外加无穷多个普通的参数。k近邻就是典型的非参数模型。</p>
+</blockquote>
+<p>总结就是所谓参数学习算法它有固定的明确的参数，参数 一旦确定，就不会改变了，我们不需要在保留训练集中的训练样本。而非参数学习算法，每进行一次预测，就需要重新学习一组 ， 是变化的，所以需要一直保留训练样本。</p>
+<h3 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h3><p>这里采用的数据跟线性回归算法采用的相同。选取不同的k值，得到的拟合曲线如下图：<br><img src="/线性回归算法/局部加权回归拟合.png" title="不同k值对于拟合曲线的影响"><br>从图中可以看到，当k值较小时，对于训练数据有很好的拟合效果；当k值较大时(比如取1)，对于训练数据拟合的效果不是很好。当然这都是针对训练数据，在实际使用中，我们更关注的是对于测试数据的效果如何。在实际中，我们可以将数据进行十倍交叉验证，选择最合适的k值。<br>从高斯公式中，我们从两个方面看。首先，我们固定k值，那么距离$x^{(i)}$较远的样本，其对应的权重相对较小；距离$x^{(i)}$较近的样本，其对应的权重相对较大，当x取$x^{(i)}$时，对应的权重为1。而如果我们固定x(即只看某一特定样本点)，k取值较大时，此样本点对应的权重相对较大；k取值较小时，此样本点对应的权重相对较大。所以k可以控制算法选择$x^{(i)}$点附近有多少样本参与计算。<br><img src="/线性回归算法/k值的影响.PNG" title="k值的影响"><br>最上面的图是样本点，剩下三幅图都是针对样本点x=0.5,根据不同的k值，画出的x附近样本的权重变化。可以看到，当k取0.5时，当计算x=0.5时的预测值时，几乎所有的样本点都包括了；而当k=0.01时，仅仅取了x=0.5附近的点参与计算。如果k值取无穷大，那么w对于所有的点的权重都是1，那么局部加权线性回归就变成了普通的线性回归算法。</p>
+<h2 id="岭回归算法"><a href="#岭回归算法" class="headerlink" title="岭回归算法"></a>岭回归算法</h2><img src="/线性回归算法/岭回归.png" title="lambda值与权重的关系">
+<h2 id="lasso回归算法"><a href="#lasso回归算法" class="headerlink" title="lasso回归算法"></a>lasso回归算法</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ol>
+<li>《吴恩达cs229 课程讲义》</li>
+<li>《机器学习实战》</li>
 </ol>
-<hr>
-<img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/stride.jpeg" title="空间排列">
-<p>这里的输入只有一个x轴,输入为[1,2,-1,1,-3],过滤器大小为3,采用零值填充.所以W=5,F=3,P=1.图片最右侧是过滤器的权重,偏置为0.左图:步长为1,最后得到的输出的尺寸为5;右图:步长为2,最后得到的输出尺寸为3.所有黄色的神经元共享相同的参数</p>
-<hr>
-<p><em>Use of zero-padding</em>.当步长为1(即S=1),设置$P=(F-1)/2$,这样卷积层的输入跟输出将会有相同大小的空间.<br><em>Constraints on strides</em>.</p>
-<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><h2 id="Normalization-Layer"><a href="#Normalization-Layer" class="headerlink" title="Normalization Layer"></a>Normalization Layer</h2><h2 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h2><h2 id="全连接层转变为卷积层"><a href="#全连接层转变为卷积层" class="headerlink" title="全连接层转变为卷积层"></a>全连接层转变为卷积层</h2><h1 id="ConvNet-结构"><a href="#ConvNet-结构" class="headerlink" title="ConvNet 结构"></a>ConvNet 结构</h1><h2 id="层模式"><a href="#层模式" class="headerlink" title="层模式"></a>层模式</h2><h2 id="层大小模式"><a href="#层大小模式" class="headerlink" title="层大小模式"></a>层大小模式</h2><h2 id="常用CNN"><a href="#常用CNN" class="headerlink" title="常用CNN"></a>常用CNN</h2><h2 id="计算考虑"><a href="#计算考虑" class="headerlink" title="计算考虑"></a>计算考虑</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>
+
       
     </div>
     
@@ -513,7 +522,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html" title="CS231n Convolutional Neural Networks for Visual Recognition">https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html</a>
+    <a href="https://lightnine/github.io/线性回归算法.html" title="线性回归算法">https://lightnine/github.io/线性回归算法.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -529,7 +538,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
+            <a href="/tags/线性回归算法/" rel="tag"><i class="fa fa-tag"></i> 线性回归算法</a>
+          
+            <a href="/tags/局部加权回归算法/" rel="tag"><i class="fa fa-tag"></i> 局部加权回归算法</a>
+          
+            <a href="/tags/岭回归算法/" rel="tag"><i class="fa fa-tag"></i> 岭回归算法</a>
+          
+            <a href="/tags/lasso回归算法/" rel="tag"><i class="fa fa-tag"></i> lasso回归算法</a>
           
         </div>
       
@@ -542,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo搭建github博客多设备更新.html" rel="next" title="hexo搭建github博客多设备更新">
-                <i class="fa fa-chevron-left"></i> hexo搭建github博客多设备更新
+              <a href="/linux鸟哥私房菜收获.html" rel="next" title="linux鸟哥私房菜收获">
+                <i class="fa fa-chevron-left"></i> linux鸟哥私房菜收获
               </a>
             
           </div>
@@ -552,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Refactor-improving-the-Design-of-Existing-Code.html" rel="prev" title="Refactor-improving the Design of Existing Code">
-                Refactor-improving the Design of Existing Code <i class="fa fa-chevron-right"></i>
+              <a href="/python知识点.html" rel="prev" title="python知识点">
+                python知识点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -710,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN"><span class="nav-number">1.</span> <span class="nav-text">CNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN结构概览"><span class="nav-number">2.</span> <span class="nav-text">CNN结构概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConvNet-层"><span class="nav-number">3.</span> <span class="nav-text">ConvNet 层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积层"><span class="nav-number">3.1.</span> <span class="nav-text">卷积层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2-假设输入为-16-times-16-times-20-过滤器大小为3-times-3-那么卷积层中每个神经元都需要3-3-20-1-180个参数"><span class="nav-number">3.2.</span> <span class="nav-text">Example 2:假设输入为[16$\times$16$\times$20],过滤器大小为3$\times$3,那么卷积层中每个神经元都需要3*3*20 + 1=180个参数.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#池化层"><span class="nav-number">3.3.</span> <span class="nav-text">池化层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Normalization-Layer"><span class="nav-number">3.4.</span> <span class="nav-text">Normalization Layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全连接层"><span class="nav-number">3.5.</span> <span class="nav-text">全连接层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全连接层转变为卷积层"><span class="nav-number">3.6.</span> <span class="nav-text">全连接层转变为卷积层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConvNet-结构"><span class="nav-number">4.</span> <span class="nav-text">ConvNet 结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#层模式"><span class="nav-number">4.1.</span> <span class="nav-text">层模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层大小模式"><span class="nav-number">4.2.</span> <span class="nav-text">层大小模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用CNN"><span class="nav-number">4.3.</span> <span class="nav-text">常用CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算考虑"><span class="nav-number">4.4.</span> <span class="nav-text">计算考虑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归算法"><span class="nav-number">1.</span> <span class="nav-text">线性回归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一般线性回归算法"><span class="nav-number">1.1.</span> <span class="nav-text">一般线性回归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">1.1.1.</span> <span class="nav-text">梯度下降算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代数解"><span class="nav-number">1.1.2.</span> <span class="nav-text">代数解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归模型的概率解释"><span class="nav-number">1.1.3.</span> <span class="nav-text">回归模型的概率解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程实现"><span class="nav-number">1.1.4.</span> <span class="nav-text">编程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代数解实现线性回归算法"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">代数解实现线性回归算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机梯度下降实现线性回归"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">随机梯度下降实现线性回归</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部加权线性回归算法"><span class="nav-number">1.2.</span> <span class="nav-text">局部加权线性回归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数算法vs非参数算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">参数算法vs非参数算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">实际使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#岭回归算法"><span class="nav-number">1.3.</span> <span class="nav-text">岭回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lasso回归算法"><span class="nav-number">1.4.</span> <span class="nav-text">lasso回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.6.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
             
 
           </div>
