@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 numpy相关 numpy中有mat和array，都可以用来表示多维数据。如果一个">
+<meta name="description" content="都是关于python3的内容  Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 python基本类型 Number(数字) String(字符串) List(列表) Tuple(元组) Set(集合) Dictionary(字典)  不可变数据：Number（数字）、String（字符串）、Tuple（元组）；可变数据：List（列表）、Dicti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python知识点">
 <meta property="og:url" content="https://lightnine/github.io/python知识点.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 numpy相关 numpy中有mat和array，都可以用来表示多维数据。如果一个">
+<meta property="og:description" content="都是关于python3的内容  Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 python基本类型 Number(数字) String(字符串) List(列表) Tuple(元组) Set(集合) Dictionary(字典)  不可变数据：Number（数字）、String（字符串）、Tuple（元组）；可变数据：List（列表）、Dicti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T14:18:41.042Z">
+<meta property="og:updated_time" content="2018-09-11T03:01:15.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python知识点">
-<meta name="twitter:description" content="Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 numpy相关 numpy中有mat和array，都可以用来表示多维数据。如果一个">
+<meta name="twitter:description" content="都是关于python3的内容  Python知识点这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用 python基本类型 Number(数字) String(字符串) List(列表) Tuple(元组) Set(集合) Dictionary(字典)  不可变数据：Number（数字）、String（字符串）、Tuple（元组）；可变数据：List（列表）、Dicti">
 
 
 
@@ -361,8 +361,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T22:18:41+08:00">
-                2018-09-07
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T11:01:15+08:00">
+                2018-09-11
               </time>
             
           </span>
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  63
+                  378
                 </span>
               
 
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -447,8 +447,30 @@
       
 
       
-        <h1 id="Python知识点"><a href="#Python知识点" class="headerlink" title="Python知识点"></a>Python知识点</h1><p>这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用</p>
-<h2 id="numpy相关"><a href="#numpy相关" class="headerlink" title="numpy相关"></a>numpy相关</h2><ol>
+        <blockquote>
+<p>都是关于python3的内容</p>
+</blockquote>
+<h1 id="Python知识点"><a href="#Python知识点" class="headerlink" title="Python知识点"></a>Python知识点</h1><p>这里主要是记录下我平常编程中用到，但是不太清楚地知识点，仅仅作为一个记录使用</p>
+<h2 id="python基本类型"><a href="#python基本类型" class="headerlink" title="python基本类型"></a>python基本类型</h2><ol>
+<li>Number(数字)</li>
+<li>String(字符串)</li>
+<li>List(列表)</li>
+<li>Tuple(元组)</li>
+<li>Set(集合)</li>
+<li>Dictionary(字典)</li>
+</ol>
+<p>不可变数据：Number（数字）、String（字符串）、Tuple（元组）；<br>可变数据：List（列表）、Dictionary（字典）、Set（集合）。<br>使用type()可以查看变量的类型，用isinstance()也可以查看。区别：</p>
+<ul>
+<li>type()不会认为子类是一种父类类型</li>
+<li>isinstance()认为子类是一种父类类型</li>
+</ul>
+<p>如下代码所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">isinstance(A(), A)  <span class="comment"># returns True</span></span><br><span class="line">type(A()) == A      <span class="comment"># returns True</span></span><br><span class="line">isinstance(B(), A)    <span class="comment"># returns True</span></span><br><span class="line">type(B()) == A        <span class="comment"># returns False</span></span><br></pre></td></tr></table></figure>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>Python3中Number包括：int,float,bool,complex.注意只有一种整数类型int，表示长整型。</p>
+<h2 id="numpy相关"><a href="#numpy相关" class="headerlink" title="numpy相关"></a>numpy相关</h2><h3 id="维度问题"><a href="#维度问题" class="headerlink" title="维度问题"></a>维度问题</h3><p>注意下面的col_r1和col_r2的输出以及对应维度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>], [<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]])</span><br><span class="line">print(a)</span><br><span class="line">col_r1 = a[:, <span class="number">1</span>]</span><br><span class="line">col_r2 = a[:, <span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">print(col_r1)</span><br><span class="line">print(col_r1.shape)</span><br><span class="line">print(col_r2)</span><br><span class="line">print(col_r2.shape)</span><br></pre></td></tr></table></figure>
+<h3 id="numpy数组访问"><a href="#numpy数组访问" class="headerlink" title="numpy数组访问"></a>numpy数组访问</h3><p>注意这里使用数组索引来访问numpy数组。这里可以看成[[[0, 1, 2], [0, 1, 0]]]中(0,0),(1,1),(2,0)看成三对<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">print(a[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]])  <span class="comment"># Prints "[1 4 5]"</span></span><br></pre></td></tr></table></figure></p>
+<ol>
 <li>numpy中有mat和array，都可以用来表示多维数据。如果一个</li>
 </ol>
 
@@ -658,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python知识点"><span class="nav-number">1.</span> <span class="nav-text">Python知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy相关"><span class="nav-number">1.1.</span> <span class="nav-text">numpy相关</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python知识点"><span class="nav-number">1.</span> <span class="nav-text">Python知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基本类型"><span class="nav-number">1.1.</span> <span class="nav-text">python基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-number">1.1.1.</span> <span class="nav-text">Number</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy相关"><span class="nav-number">1.2.</span> <span class="nav-text">numpy相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#维度问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">维度问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy数组访问"><span class="nav-number">1.2.2.</span> <span class="nav-text">numpy数组访问</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -711,7 +733,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共19.3k字</span>
+  <span class="post-count">博客全站共20.8k字</span>
 </div>
 
         
