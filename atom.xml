@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lightnine/github.io/"/>
-  <updated>2018-09-14T16:57:47.281Z</updated>
+  <updated>2018-09-16T04:24:53.359Z</updated>
   <id>https://lightnine/github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gaussian Discriminant Analysis and Logistic Regression</title>
+    <link href="https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html"/>
+    <id>https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html</id>
+    <published>2018-09-16T03:22:36.000Z</published>
+    <updated>2018-09-16T04:24:53.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="高斯判别分析和逻辑回归算法的关系"><a href="#高斯判别分析和逻辑回归算法的关系" class="headerlink" title="高斯判别分析和逻辑回归算法的关系"></a>高斯判别分析和逻辑回归算法的关系</h1><p>最近一直在看Andrew Ng的cs229那门课的讲义，看到高斯判别分析模型和逻辑回归算法的关系那一部分，自己采用贝叶斯后验概率也证明了两者之间的关系，证明不难，本来打算记录一下的。在网上看到有个外国人写的更好，那我就把他写的直接翻译过来了。<br><a href="https://duphan.wordpress.com/2016/10/27/gaussian-discriminant-analysis-and-logistic-regression/" target="_blank" rel="noopener">原文</a></p><h2 id="判别模型和生成模型"><a href="#判别模型和生成模型" class="headerlink" title="判别模型和生成模型"></a>判别模型和生成模型</h2><p>有很多方式可以对机器学习算法进行分类，比如：监督/非监督，回归/分类,等等。还有一种方式用判别模型(<strong>Discriminative model</strong>)和生成模型(<strong>Generative model</strong>)进行区分.本篇文章，我们将会讨论高斯判别分析(Gaussian Discriminant Analysis )模型和逻辑回归(Logistic Regression)之间的关系,这也体现了判别模型和生成模型之间的关系。<br>判别模型是求$p(y|x)$.在分类问题中，判别模型是直接寻找能够将不同类的数据分开的超平面或者称之为决策边界。有很多常用的机器学习算法属于判别模型，比如：逻辑回归，SVM，神经网络等等。另一方面，生成模型是求取$p(x|y)$和$p(y)$.这意味着，在分类问题中，生成模型给出了每个类的概率分布，给出了数据是如何生成的。也即生成(generative)这个词的意思.生成模型依赖贝叶斯公式计算后验概率$p(y|x)$.像朴素贝叶斯，高斯判别分析等都属于生成模型。<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/discriminative_vs_generative.png" title="Discriminative vs Generative"><br>在实际使用中，判别模型要比生成模型用的更多，原因很多。比如：判别模型更加灵活，更加鲁棒，当对模型做出错误的假设时，模型表现的也不是很敏感。而生成模型需要我们定义数据的先验概率，即数据分布，在很多时候这是非常有困难和挑战的。然后，生成模型也有它的优势，比如：相比于判别模型，生成模型对于数据有更多的先验信息。这导致如果我们对于数据的假设是正确的，那么生成模型在少量数据下也能够表现的更好。</p><h2 id="GDA和逻辑回归"><a href="#GDA和逻辑回归" class="headerlink" title="GDA和逻辑回归"></a>GDA和逻辑回归</h2><p>接下来我将要证明，GDA(Gaussian Discriminant Analysis)如何最终推导出逻辑回归，从这个推导中也可以看出采用逻辑回归的道理。<br>对于二分类问题，GDA假设类别服从伯努利分布，数据服从多元高斯分布，如下：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/先验分布.PNG" title="先验分布"><br>具体的数学公式如下：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/分布的数学公式.PNG" title="分布的数学公式"><br>而采用GDA就是求取后验概率，我们可以证明如下等式成立：</p><script type="math/tex; mode=display">p(y=1|x) = \frac{1}{1+exp(-\theta^Tx)}</script><p>在公式中可以看到，GDA关于类别1的后验概率就是逻辑回归的sigmoid函数，这里$\theta$就是关于参数$\phi,\mu_0,\mu_1,\sum$的函数<br>接下来进行证明：</p><script type="math/tex; mode=display">p(y=1|x)=\frac{p(x|y=1)\times{p(y=1)}}{p(x)}=\frac{p(x|y=1)\times{p(y=1)}}{p(x|y=1)\times{p(y=1)} + p(x|y=1)\times{p(y=0)}}=\frac{1}{1 + \frac{p(x|y=0)\times{p(y=0)}}{p(x|y=1)\times{p(y=1)}}}</script><p>我们接下来带入概率公式，计算$\frac{1}{1 + \frac{p(x|y=0)\times{p(y=0)}}{p(x|y=1)\times{p(y=1)}}}$,计算过程如下，主要是涉及一些log和exp的转换：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明.PNG" title="证明"><br>在公式的最后，我们令$x_0=1$,至此我们得到了$\theta^Tx$,即如下式：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明结果.PNG" title="证明结果"><br>$\theta$向量的值如下：</p><script type="math/tex; mode=display">\theta=\left[ \begin{matrix}   log(\frac{1-\phi}{\phi}) - \frac{\mu_0^2 + \mu_1^2}{2\sum} \\   \frac{\mu_0 - \mu_1}{\sum}  \end{matrix}  \right]</script><h2 id="关系说明"><a href="#关系说明" class="headerlink" title="关系说明"></a>关系说明</h2><p>可以看出，从GDA可以推导出逻辑回归，但是反过来是不成立的。即如果$p(y|x)$是一个逻辑回归函数并不能推导出$p(x|y)$是一个多元的高斯分布。这说明GDA模型比逻辑回归模型具有更强的假设。事实上，如果$p(x|y)$是指数分布族(<strong>Exponential Family</strong>，比如高斯分布，泊松分布)中的一种，那么其后验概率就是逻辑回归。由此我们也得到一个为什么逻辑回归使用的更加广泛的原因，因为逻辑回归是一种非常通用，健壮的算法，适用于许多基本假设。另一方面，GDA以及一般的生成模型做出了更强的假设，因此对于非高斯或某些未定义分布数据来说并不理想。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过推导，我们可以看到很多算法内在都是存在某种联系的，理解算法之间的关系对于我们理解算法以及选择什么算法都是有很多的帮助的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;高斯判别分析和逻辑回归算法的关系&quot;&gt;&lt;a href=&quot;#高斯判别分析和逻辑回归算法的关系&quot; class=&quot;headerlink&quot; title=&quot;高斯判别分析和逻辑回归算法的关系&quot;&gt;&lt;/a&gt;高斯判别分析和逻辑回归算法的关系&lt;/h1&gt;&lt;p&gt;最近一直在看Andrew N
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://lightnine/github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Logistic Regression" scheme="https://lightnine/github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Gaussian Discriminant Analysis" scheme="https://lightnine/github.io/tags/Gaussian-Discriminant-Analysis/"/>
+    
+      <category term="Discriminative model" scheme="https://lightnine/github.io/tags/Discriminative-model/"/>
+    
+      <category term="Machine Learning" scheme="https://lightnine/github.io/tags/Machine-Learning/"/>
+    
+      <category term="Generative model" scheme="https://lightnine/github.io/tags/Generative-model/"/>
+    
+      <category term="Statistics" scheme="https://lightnine/github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jupyter notebook使用</title>
+    <link href="https://lightnine/github.io/jupyter-notebook%E4%BD%BF%E7%94%A8.html"/>
+    <id>https://lightnine/github.io/jupyter-notebook使用.html</id>
+    <published>2018-09-15T15:33:18.000Z</published>
+    <updated>2018-09-15T15:55:18.320Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="jupyter-notebook"><a href="#jupyter-notebook" class="headerlink" title="jupyter notebook"></a>jupyter notebook</h1><p>Jupyter notebook, 前身是 IPython notebook, 它是一个非常灵活的工具，有助于帮助你构建很多可读的分析，你可以在里面同时保留代码，图片，评论，公式和绘制的图像。<br>这篇文章主要是记录下jupyter notebook使用过程中一些常用的内容和技巧，包括一些magic使用</p><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>windows上，<strong>Ctrl + Shift + P</strong>可以调出快捷键的帮助信息，所有的快捷键都能够看到。掌握快捷键能够帮助我们更好的使用jupyter notebook</p><h2 id="Jupyter-Magic-Commands"><a href="#Jupyter-Magic-Commands" class="headerlink" title="Jupyter Magic Commands"></a>Jupyter Magic Commands</h2><ol><li>%matplotlib inline</li></ol><p>如果想在jupyter中画图，可以添加如下代码，则图像就能够进行显示</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><p>2. Timing</p><p>对于计时有两个十分有用的魔法命令：%%time 和 %timeit. 如果你有些代码运行地十分缓慢，而你想确定是否问题出在这里，这两个命令将会非常方便。</p><p><strong>%%time</strong> 将会给出cell的代码运行一次所花费的时间。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    time.sleep(<span class="number">0.01</span>)<span class="comment"># sleep for 0.01 seconds</span></span><br></pre></td></tr></table></figure><p><strong>%timeit</strong> 使用Python的timeit模块，它将会执行一个语句100，000次(默认情况下)，然后给出运行最快3次的平均值。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">%timeit numpy.random.normal(size=<span class="number">100</span>)</span><br></pre></td></tr></table></figure><h2 id="运行文件"><a href="#运行文件" class="headerlink" title="运行文件"></a>运行文件</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;jupyter-notebook&quot;&gt;&lt;a href=&quot;#jupyter-notebook&quot; class=&quot;headerlink&quot; title=&quot;jupyter notebook&quot;&gt;&lt;/a&gt;jupyter notebook&lt;/h1&gt;&lt;p&gt;Jupyter notebo
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://lightnine/github.io/categories/python/"/>
+    
+    
+      <category term="jupyter" scheme="https://lightnine/github.io/tags/jupyter/"/>
+    
+      <category term="工具" scheme="https://lightnine/github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Quartz与Spring结合使用及集群配置</title>
