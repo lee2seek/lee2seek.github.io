@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="Logistic Regression,Gaussian Discriminant Analysis,Discriminative model,Machine Learning,Generative model,Statistics," />
+  <meta name="keywords" content="svm,支持向量机," />
 
 
 
@@ -87,25 +87,18 @@
 
 
 
-<meta name="description" content="高斯判别分析和逻辑回归算法的关系最近一直在看Andrew Ng的cs229那门课的讲义，看到高斯判别分析模型和逻辑回归算法的关系那一部分，自己采用贝叶斯后验概率也证明了两者之间的关系，证明不难，本来打算记录一下的。在网上看到有个外国人写的更好，那我就把他写的直接翻译过来了。当然文章中也加入了在网上看到的其他资料和自己的一些思考。原文 判别模型和生成模型有很多方式可以对机器学习算法进行分类，比如：监">
-<meta name="keywords" content="Logistic Regression,Gaussian Discriminant Analysis,Discriminative model,Machine Learning,Generative model,Statistics">
+<meta name="description" content="支持向量机这篇博客主要介绍如何推导svm算法。写这篇博客主要是最近在学习svm算法，想着合上书，自己推导一遍算法的原理，发现还是有很多需要思考的地方。其实一般推导机器学习算法，是有一个模式的。  定义模型，这里模型理解为如何定义公式 选择损失函数 采用优化算法求损失函数的最小值 推导完毕  比如拿逻辑回归算法举例：  定义模型，即选取sigmoid函数 定义损失函数 采用最大梯度下降算法求损失函数">
+<meta name="keywords" content="svm,支持向量机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gaussian Discriminant Analysis and Logistic Regression">
-<meta property="og:url" content="https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html">
+<meta property="og:title" content="svm原理介绍">
+<meta property="og:url" content="https://lightnine/github.io/svm原理介绍.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="高斯判别分析和逻辑回归算法的关系最近一直在看Andrew Ng的cs229那门课的讲义，看到高斯判别分析模型和逻辑回归算法的关系那一部分，自己采用贝叶斯后验概率也证明了两者之间的关系，证明不难，本来打算记录一下的。在网上看到有个外国人写的更好，那我就把他写的直接翻译过来了。当然文章中也加入了在网上看到的其他资料和自己的一些思考。原文 判别模型和生成模型有很多方式可以对机器学习算法进行分类，比如：监">
+<meta property="og:description" content="支持向量机这篇博客主要介绍如何推导svm算法。写这篇博客主要是最近在学习svm算法，想着合上书，自己推导一遍算法的原理，发现还是有很多需要思考的地方。其实一般推导机器学习算法，是有一个模式的。  定义模型，这里模型理解为如何定义公式 选择损失函数 采用优化算法求损失函数的最小值 推导完毕  比如拿逻辑回归算法举例：  定义模型，即选取sigmoid函数 定义损失函数 采用最大梯度下降算法求损失函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/discriminative_vs_generative.png">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/先验分布.PNG">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/分布的数学公式.PNG">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明.PNG">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明结果.PNG">
-<meta property="og:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/高斯分布和逻辑回归.png">
-<meta property="og:updated_time" content="2018-09-16T07:32:33.166Z">
+<meta property="og:updated_time" content="2018-10-28T09:18:09.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gaussian Discriminant Analysis and Logistic Regression">
-<meta name="twitter:description" content="高斯判别分析和逻辑回归算法的关系最近一直在看Andrew Ng的cs229那门课的讲义，看到高斯判别分析模型和逻辑回归算法的关系那一部分，自己采用贝叶斯后验概率也证明了两者之间的关系，证明不难，本来打算记录一下的。在网上看到有个外国人写的更好，那我就把他写的直接翻译过来了。当然文章中也加入了在网上看到的其他资料和自己的一些思考。原文 判别模型和生成模型有很多方式可以对机器学习算法进行分类，比如：监">
-<meta name="twitter:image" content="https://lightnine/Gaussian-Discriminant-Analysis-and-Logistic-Regression/discriminative_vs_generative.png">
+<meta name="twitter:title" content="svm原理介绍">
+<meta name="twitter:description" content="支持向量机这篇博客主要介绍如何推导svm算法。写这篇博客主要是最近在学习svm算法，想着合上书，自己推导一遍算法的原理，发现还是有很多需要思考的地方。其实一般推导机器学习算法，是有一个模式的。  定义模型，这里模型理解为如何定义公式 选择损失函数 采用优化算法求损失函数的最小值 推导完毕  比如拿逻辑回归算法举例：  定义模型，即选取sigmoid函数 定义损失函数 采用最大梯度下降算法求损失函数">
 
 
 
@@ -135,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html"/>
+  <link rel="canonical" href="https://lightnine/github.io/svm原理介绍.html"/>
 
 
 
 
 
-  <title>Gaussian Discriminant Analysis and Logistic Regression | 个人博客</title>
+  <title>svm原理介绍 | 个人博客</title>
   
 
 
@@ -324,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html">
+    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/svm原理介绍.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liang">
@@ -341,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Gaussian Discriminant Analysis and Logistic Regression</h1>
+          <h1 class="post-title" itemprop="name headline">svm原理介绍</h1>
         
 
         <div class="post-meta">
@@ -353,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-16T11:22:36+08:00">
-                2018-09-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T22:16:43+08:00">
+                2018-10-18
               </time>
             
 
@@ -369,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-16T15:32:33+08:00">
-                2018-09-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-28T17:18:09+08:00">
+                2018-10-28
               </time>
             
           </span>
@@ -388,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learning</span>
                   </a>
                 </span>
 
@@ -419,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,894
+                  1,155
                 </span>
               
 
@@ -435,7 +428,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  4
                 </span>
               
             </div>
@@ -455,31 +448,63 @@
       
 
       
-        <h1 id="高斯判别分析和逻辑回归算法的关系"><a href="#高斯判别分析和逻辑回归算法的关系" class="headerlink" title="高斯判别分析和逻辑回归算法的关系"></a>高斯判别分析和逻辑回归算法的关系</h1><p>最近一直在看Andrew Ng的cs229那门课的讲义，看到高斯判别分析模型和逻辑回归算法的关系那一部分，自己采用贝叶斯后验概率也证明了两者之间的关系，证明不难，本来打算记录一下的。在网上看到有个外国人写的更好，那我就把他写的直接翻译过来了。当然文章中也加入了在网上看到的其他资料和自己的一些思考。<br><a href="https://duphan.wordpress.com/2016/10/27/gaussian-discriminant-analysis-and-logistic-regression/" target="_blank" rel="noopener">原文</a></p>
-<h2 id="判别模型和生成模型"><a href="#判别模型和生成模型" class="headerlink" title="判别模型和生成模型"></a>判别模型和生成模型</h2><p>有很多方式可以对机器学习算法进行分类，比如：监督/非监督，回归/分类,等等。还有一种方式用判别模型(<strong>Discriminative model</strong>)和生成模型(<strong>Generative model</strong>)进行区分.本篇文章，我们将会讨论高斯判别分析(Gaussian Discriminant Analysis )模型和逻辑回归(Logistic Regression)之间的关系,这也体现了判别模型和生成模型之间的关系。<br>判别模型是求$p(y|x)$.在分类问题中，判别模型是直接寻找能够将不同类的数据分开的超平面或者称之为决策边界。有很多常用的机器学习算法属于判别模型，比如：逻辑回归，SVM，神经网络等等。另一方面，生成模型是求取$p(x|y)$和$p(y)$.这意味着，在分类问题中，生成模型给出了每个类的概率分布，给出了数据是如何生成的。也即生成(generative)这个词的意思.生成模型依赖贝叶斯公式计算后验概率$p(y|x)$.像朴素贝叶斯，高斯判别分析等都属于生成模型。<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/discriminative_vs_generative.png" title="Discriminative vs Generative"><br>在实际使用中，判别模型要比生成模型用的更多，原因很多。比如：判别模型更加灵活，更加鲁棒，当对模型做出错误的假设时，模型表现的也不是很敏感。而生成模型需要我们定义数据的先验概率，即数据分布，在很多时候这是非常有困难和挑战的。然后，生成模型也有它的优势，比如：相比于判别模型，生成模型对于数据有更多的先验信息。这导致如果我们对于数据的假设是正确的，那么生成模型在少量数据下也能够表现的更好。</p>
-<h2 id="GDA和逻辑回归"><a href="#GDA和逻辑回归" class="headerlink" title="GDA和逻辑回归"></a>GDA和逻辑回归</h2><p>接下来我将要证明，GDA(Gaussian Discriminant Analysis)如何最终推导出逻辑回归，从这个推导中也可以看出采用逻辑回归的道理。<br>对于二分类问题，GDA假设类别服从伯努利分布，数据服从多元高斯分布，如下：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/先验分布.PNG" title="先验分布"><br>具体的数学公式如下：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/分布的数学公式.PNG" title="分布的数学公式"><br>而采用GDA就是求取后验概率，我们可以证明如下等式成立：</p>
-<script type="math/tex; mode=display">p(y=1|x) = \frac{1}{1+exp(-\theta^Tx)}</script><p>在公式中可以看到，GDA关于类别1的后验概率就是逻辑回归的sigmoid函数，这里$\theta$就是关于参数$\phi,\mu_0,\mu_1,\sum$的函数<br>接下来进行证明：</p>
-<script type="math/tex; mode=display">
-p(y=1|x)
-=\frac{p(x|y=1)\times{p(y=1)}}{p(x)}
-=\frac{p(x|y=1)\times{p(y=1)}}{p(x|y=1)\times{p(y=1)} + p(x|y=1)\times{p(y=0)}}
-=\frac{1}{1 + \frac{p(x|y=0)\times{p(y=0)}}{p(x|y=1)\times{p(y=1)}}}</script><p>我们接下来带入概率公式，计算$\frac{1}{1 + \frac{p(x|y=0)\times{p(y=0)}}{p(x|y=1)\times{p(y=1)}}}$,计算过程如下，主要是涉及一些log和exp的转换：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明.PNG" title="证明"><br>在公式的最后，我们令$x_0=1$,至此我们得到了$\theta^Tx$,即如下式：<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/证明结果.PNG" title="证明结果"><br>$\theta$向量的值如下：</p>
-<script type="math/tex; mode=display">\theta=\left[
- \begin{matrix}
-   log(\frac{1-\phi}{\phi}) - \frac{\mu_0^2 + \mu_1^2}{2\sum} \\
-   \frac{\mu_0 - \mu_1}{\sum}
-  \end{matrix}
-  \right]</script><h2 id="关系说明"><a href="#关系说明" class="headerlink" title="关系说明"></a>关系说明</h2><p>可以看出，从GDA可以推导出逻辑回归，但是反过来是不成立的。即如果$p(y|x)$是一个逻辑回归函数并不能推导出$p(x|y)$是一个多元的高斯分布。这说明GDA模型比逻辑回归模型具有更强的假设。事实上，如果$p(x|y)$是指数分布族(<strong>Exponential Family</strong>，比如高斯分布，泊松分布)中的一种，那么其后验概率就是逻辑回归。由此我们也得到一个为什么逻辑回归使用的更加广泛的原因，因为逻辑回归是一种非常通用，健壮的算法，适用于许多基本假设。另一方面，GDA以及一般的生成模型做出了更强的假设，因此对于非高斯或某些未定义分布数据来说并不理想。<br>特别的，当$p(x|y)$是高斯分布(类别之间具有相同的协方差)时，则GDA是渐进有效的(首先搞清楚什么叫有效性，有效性是指在所有的无偏估计方法里，某种方法的估计量的方差是最小的，则该种估计方法就是有效的，比如古典假定的OLS(最小二乘算法)估计。渐近有效是指该种估计方法在中小样本时可能不是最有效的，但随着样本数的增加，慢慢变得有效（没有其它无偏估计方法可以得到更小的方差），这就称为渐近有效，比如正态分布下线性模型的最大似然估计)。非正式地说，当训练集数目很大时，没有模型能显著地比GDA更好(即模型准确估计$p(y|x)$的程度).如果数据服从正态分布，则GDA要比逻辑回归表现的更好，更近一步，即使对于比较小的训练集，我们也总是认为GDA要表现的更好。<br>假设有一个一维训练集，包含一些正样本和负样本，如下图x轴的叉和圈，设叉为0，圈为1，用GDA对两类样本分别拟合高斯概率密度函数p(x|y=0)和p(x|y=1)，如下图的两个钟形曲线。沿x轴遍历样本，在x轴上方画出相应的p(y=1|x)。如选x轴靠左的点，那么它属于1的概率几乎为0，p(y=1|x)=0，两条钟形曲线交点处，属于0或1的概率相同，p(y=1|x)=0.5，x轴靠右的点，输出1的概率几乎为1，p(y=1|x)=1。最终发现，得到的曲线和sigmoid函数曲线很相似。<br><img src="/Gaussian-Discriminant-Analysis-and-Logistic-Regression/高斯分布和逻辑回归.png" title="高斯分布和逻辑回归"><br>也就是说，当使用GDA模型时，p(x|y)属于高斯分布，计算p(y|x)时，几乎能得到和logistic回归中使用的sigmiod函数一样的函数，但实际上还是存在本质区别。</p>
-<p>在Andrew Ng的cs229采用两种方法可以推导出逻辑回归</p>
+        <h1 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h1><p>这篇博客主要介绍如何推导svm算法。写这篇博客主要是最近在学习svm算法，想着合上书，自己推导一遍算法的原理，发现还是有很多需要思考的地方。<br>其实一般推导机器学习算法，是有一个模式的。</p>
 <ol>
-<li>通过指数分布族来推导。</li>
-<li>通过生成学习假设先验概率分布的方式进行推导。</li>
+<li>定义模型，这里模型理解为如何定义公式</li>
+<li>选择损失函数</li>
+<li>采用优化算法求损失函数的最小值</li>
+<li>推导完毕</li>
 </ol>
-<h2 id="如何选择两种模型"><a href="#如何选择两种模型" class="headerlink" title="如何选择两种模型"></a>如何选择两种模型</h2><p>由上面的分析可以知道，GDA比逻辑回归有更多的前置假设。当数据服从或大致服从正态分布时，GDA会具有更高的拟合度，因为GDA利用了更多的信息构建模型。但是当数据不服从正态分布时，那么逻辑回归更有效，因为它做出更少的假设，构建的模型更加强壮，更加具有鲁棒性。生成学习还有另外的一个好处，就是可以使用比判别学习模型使用更少的数据构建出强壮的模型。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过推导，我们可以看到很多算法内在都是存在某种联系的，理解算法之间的关系对于我们理解算法以及选择什么算法都是有很多的帮助的。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://duphan.wordpress.com/2016/10/27/gaussian-discriminant-analysis-and-logistic-regression/" target="_blank" rel="noopener">Gaussian Discriminant Analysis and Logistic Regression</a></li>
+<p>比如拿逻辑回归算法举例：</p>
+<ol>
+<li>定义模型，即选取sigmoid函数</li>
+<li>定义损失函数</li>
+<li>采用最大梯度下降算法求损失函数的最小值</li>
+<li>得到算法的w和b</li>
 </ol>
+<p>但是svm的推导基本上没有怎么提损失函数的内容，大家等会可以在这篇博客中看到如何推导svm算法</p>
+<h2 id="判别函数"><a href="#判别函数" class="headerlink" title="判别函数"></a>判别函数</h2><script type="math/tex; mode=display">h_{w,b}(x) = g(w^T + b)</script><p>上式是SVM的判别函数，其中函数g如下所示：</p>
+<script type="math/tex; mode=display">g(z)=\left\{
+\begin{array}{rcl}
+1       &      & {z \geq 0 }\\
+-1     &      & {z < 0 }
+\end{array} \right.</script><p>即$g(z)$的输出为1时，判别为正例；输出为-1时，判别为反例。</p>
+<h2 id="函数间隔和几何间隔-Functional-and-geometric-margins"><a href="#函数间隔和几何间隔-Functional-and-geometric-margins" class="headerlink" title="函数间隔和几何间隔(Functional and geometric margins)"></a>函数间隔和几何间隔(Functional and geometric margins)</h2><h3 id="函数间隔"><a href="#函数间隔" class="headerlink" title="函数间隔"></a>函数间隔</h3><p>对于某一个训练样本$(x^(i), y^(i))$定义函数间隔如下式：</p>
+<script type="math/tex; mode=display">\hat{\gamma}^{(i)} = y^{(i)}(w^T + b)</script><p>分析函数间隔公式,可以得出如下的结论.当$y^{(i)}=1$时,则$w^T+b&gt;0$,所以$g(z) = 1$;当$y^{(i)}=-1$时,则$w^T+b&lt;0$,所以$g(z) = -1$.所以函数间隔对于判别样本的类别是由作用的.<br>但是,当我们将$w,b$扩大两倍时,函数函数间隔扩大两倍,但是对于$g(z)$并没有什么变化.即,下式成立</p>
+<script type="math/tex; mode=display">g(2w^T+2b) = g(w^T+b)$$.所以更大的函数间隔并不一定比小的函数间隔的置信度大.由此引出了几何间隔
+
+### 几何间隔
+
+针对几何间隔,我们考虑二维平面,如下图所示:
+<img src="/svm原理介绍/几何间隔.png">
+图中的斜线是对应于参数$(w,b)$的决策分隔线.注意$w$是垂直于决策线的,即$w$是决策线的法向量.
+> 证明如下:
+设$x_0,x_1$是直线$w^T+b=0$上不同的两个点,则有下式成立
+$$ \left\{
+\begin{array}{rcl}
+w^Tx_0 + b = 0       &      & \\
+w^Tx_1 + b = 0     &      &
+\end{array} \right.</script><p>两式相减的$w^T(x_0 - x_1) = 0$,而其中$x_0 - x_1$是直线$w^T+b=0$的方向向量,所以w是法向量.</p>
+<p>图中$\gamma^{(i)}$是A点对应的几何间隔.设A点为$x^{(i)}$,而向量$w/{\left|w\right|}$是法向量上的单位向量.因此得到B点为$x^{(i)} - \gamma^{(i)}\cdot w/{\left|w\right|}$,又因为B点在分离平面上,所以下式成立:</p>
+<script type="math/tex; mode=display">w^T(x^{(i)} - \gamma^{(i)}{\frac w {\left\|w\right\|}}) = 0</script><p>从而得到下式:</p>
+<script type="math/tex; mode=display">\gamma^{(i)} = {\frac {w^Tx^{(i)}+b} {\left\|w\right\|} }=({\frac w {\left\|w\right\|}})^Tx^{(i)} + {\frac b {\left\|w\right\|} }</script><p>如果A点在B点的另外一侧,则B点可以表示为下式:</p>
+<script type="math/tex; mode=display">x^{(i)} + \gamma^{(i)}\cdot w/{\left\|w\right\|}$$,带入分离超平面,得到几何间隔如下:
+$$\gamma^{(i)} = -{\frac {w^Tx^{(i)}+b} {\left\|w\right\|} }</script><p>综合两种情况,得到</p>
+<script type="math/tex; mode=display">\gamma^{(i)} =y^{(i)}(({\frac w {\left\|w\right\|}})^Tx^{(i)} + {\frac b {\left\|w\right\|} })</script><p>具体的公式推导过程中,并没有完全限制在二维平面上(虽然开始展示的图像是二维平面上的),所以对于高维平面也是得到上述公式.<br>几何间隔反应了样本到分离面的距离,直观上最小的几何间隔越大越好.并且几何间隔中的参数$w,b$可以随意的进行尺度变换而不影响几何间隔的大小(这是因为几何间隔的式子中除以了w的二范数).同时当$\left|w\right|=1$时,几何间隔就等于函数间隔.<br>定义</p>
+<script type="math/tex; mode=display">\hat{\gamma} = \min_{i=1,...,m}{\hat{\gamma}^{(i)}}</script><script type="math/tex; mode=display">{\gamma} = \min_{i=1,...,m}{\gamma}^{(i)}</script><p>即$\hat{\gamma}$和${\gamma}$分别是函数间隔和几何间隔的最小值.</p>
+<h2 id="最优间隔分类器"><a href="#最优间隔分类器" class="headerlink" title="最优间隔分类器"></a>最优间隔分类器</h2><p>通过上面的函数间隔和几何间隔,我们自然能够想到优化目标如下式所示:</p>
+<script type="math/tex; mode=display">\max_{\gamma,w,b} {\gamma} \\
+s.t.\quad   y^{(i)}(w^T + b) \geq \gamma, i=1,...,m \\
+\left\|w\right\|=1 \tag{1.1}</script><p>即在满足所有样本的几何间隔都大于最小几何间隔的情况下,求使得几何间隔最大的参数$w,b$<br>我们可以将上述优化公式转变成用函数间隔进行表达,如下式所示:</p>
+<script type="math/tex; mode=display">\max_{\gamma,w,b} {\frac {\hat\gamma} {\left\|w\right\|}}\\
+s.t.\quad   y^{(i)}(w^T + b) \geq \hat\gamma, i=1,...,m \tag{1.2}</script><blockquote>
+<p>上述两个优化问题为什么等价?因为$\gamma={\frac {\hat\gamma} {\left|w\right|}}$.针对优化公式(1.2),即求取几何间隔最大,同时在约束不等式两边同时除以$\left|w\right|$,即得所有的几何间隔都大于最小的几何间隔.这即等价于优化公式(1.1)</p>
+</blockquote>
+<p>由于参数$w,b$进行尺度变化,所以我们可以固定函数间隔等于1,即$\hat\gamma=1$<br>最终将优化公式化简为下式:</p>
+<script type="math/tex; mode=display">\min_{\gamma,w,b}{\frac 1 2}{\left\|w\right\|}^2 \\
+s.t.\quad y^{(i)}(w^T + b) \geq 1, i=1,...,m \tag{1.3}</script><p>针对这个优化公式,即满足不等式的条件下,求取二次函数的最小值,虽然可以采用优化算法求取此最优值.但是我们下面介绍拉格朗日对偶来进行求取,第一求取最优值会变得更加简单,第二能够使用核函数.</p>
+<h2 id="拉格朗日对偶-Lagrange-duality"><a href="#拉格朗日对偶-Lagrange-duality" class="headerlink" title="拉格朗日对偶(Lagrange duality)"></a>拉格朗日对偶(Lagrange duality)</h2><p>拉格朗日对偶主要是将优化公式转变为其对偶形式,具体的推导过程可以参考Andrew Ng cs229课程中的内容.</p>
+<h2 id="再次求解最优间隔分类器"><a href="#再次求解最优间隔分类器" class="headerlink" title="再次求解最优间隔分类器"></a>再次求解最优间隔分类器</h2><p>通过拉格朗日对偶,将SVM的优化目标转变为对偶形式,从而得到参数$w,b$</p>
 
       
     </div>
@@ -500,7 +525,7 @@ p(y=1|x)
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html" title="Gaussian Discriminant Analysis and Logistic Regression">https://lightnine/github.io/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html</a>
+    <a href="https://lightnine/github.io/svm原理介绍.html" title="svm原理介绍">https://lightnine/github.io/svm原理介绍.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -516,17 +541,9 @@ p(y=1|x)
       
         <div class="post-tags">
           
-            <a href="/tags/Logistic-Regression/" rel="tag"><i class="fa fa-tag"></i> Logistic Regression</a>
+            <a href="/tags/svm/" rel="tag"><i class="fa fa-tag"></i> svm</a>
           
-            <a href="/tags/Gaussian-Discriminant-Analysis/" rel="tag"><i class="fa fa-tag"></i> Gaussian Discriminant Analysis</a>
-          
-            <a href="/tags/Discriminative-model/" rel="tag"><i class="fa fa-tag"></i> Discriminative model</a>
-          
-            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
-          
-            <a href="/tags/Generative-model/" rel="tag"><i class="fa fa-tag"></i> Generative model</a>
-          
-            <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+            <a href="/tags/支持向量机/" rel="tag"><i class="fa fa-tag"></i> 支持向量机</a>
           
         </div>
       
@@ -539,8 +556,8 @@ p(y=1|x)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jupyter-notebook使用.html" rel="next" title="jupyter notebook使用">
-                <i class="fa fa-chevron-left"></i> jupyter notebook使用
+              <a href="/Gaussian-Discriminant-Analysis-and-Logistic-Regression.html" rel="next" title="Gaussian Discriminant Analysis and Logistic Regression">
+                <i class="fa fa-chevron-left"></i> Gaussian Discriminant Analysis and Logistic Regression
               </a>
             
           </div>
@@ -548,10 +565,6 @@ p(y=1|x)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/svm原理介绍.html" rel="prev" title="svm原理介绍">
-                svm原理介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -707,7 +720,7 @@ p(y=1|x)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高斯判别分析和逻辑回归算法的关系"><span class="nav-number">1.</span> <span class="nav-text">高斯判别分析和逻辑回归算法的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判别模型和生成模型"><span class="nav-number">1.1.</span> <span class="nav-text">判别模型和生成模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDA和逻辑回归"><span class="nav-number">1.2.</span> <span class="nav-text">GDA和逻辑回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系说明"><span class="nav-number">1.3.</span> <span class="nav-text">关系说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何选择两种模型"><span class="nav-number">1.4.</span> <span class="nav-text">如何选择两种模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">1.6.</span> <span class="nav-text">参考文章</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#支持向量机"><span class="nav-number">1.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判别函数"><span class="nav-number">1.1.</span> <span class="nav-text">判别函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数间隔和几何间隔-Functional-and-geometric-margins"><span class="nav-number">1.2.</span> <span class="nav-text">函数间隔和几何间隔(Functional and geometric margins)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数间隔"><span class="nav-number">1.2.1.</span> <span class="nav-text">函数间隔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最优间隔分类器"><span class="nav-number">1.3.</span> <span class="nav-text">最优间隔分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日对偶-Lagrange-duality"><span class="nav-number">1.4.</span> <span class="nav-text">拉格朗日对偶(Lagrange duality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再次求解最优间隔分类器"><span class="nav-number">1.5.</span> <span class="nav-text">再次求解最优间隔分类器</span></a></li></ol></li></ol></div>
             
 
           </div>
