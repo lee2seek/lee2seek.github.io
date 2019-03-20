@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019-plan-and-learn]]></title>
+    <url>%2F2019-plan-and-learn.html</url>
+    <content type="text"><![CDATA[2019计划目标 掌握tensorflow的使用 掌握Python以及常用库(numpy,matplotlib,pandas)的使用 掌握常用机器学习算法(SVM,AdaBoost,LightGBM)的使用以及理论 掌握深度学习常用算法应用和理论 掌握英语单词5000个,提高自己的英语发音 spark大数据分析技术 linux相关技术 Java相关技术 具体实现今天看了一篇虎扑上面&lt;非CS专业转行机器学习/人工智能阶段性成功，分享一点个人经验吧&gt;的帖子，感触比较多，摘一点帖子里面的内容，为之后的学习提供一定的建议。楼主的情况是没有人工智能基础的，为了找到人工智能的工作准备了两年时间。 编程：掌握一门语言，要达到非常熟悉的阶段。数据结构：掌握常用的数据结构，多做leetcode上面的编程题目，至少要刷一下easy和medium模式的题目，写的时候考虑test case机器学习： 1. andrew ng的machine learning，仔细看课件和习题 2. hands on machine learning with scikit-learn and tensorflow，并且在pythhon中实践还有课后习题 3. bishop的pattern recognition and machine learning 4. 李彦宏的机器学习和深度学习(自己加的) 5. 李航的统计机器学习（自己加的） Java相关技术参考了v2ex 或者github这里做了一个思维导图下面进行思维导图的一些解释。同时对这些技能点进行查漏补缺，同时也会在之后的过程中添加更多的技能点 集合集合主要是java.util包下的非线程安全和线程安全集合 非线程安全 List： ArrayList与LinkedList的实现和区别 Map： HashMap:了解其数据结构，源码，hash冲突如何解决(链表和红黑树)，扩容时机，扩容时避免rehash优化 LinkedHashMap:了解基本原理，哪两种有序，如何实现LRU TreeMap：了解数据结构，了解其key对象为什么必须要实现Compare接口，如何用它实现一致性哈希 Set：基本上是由map实现，简单看看就好 常见问题 hashmap 如何解决 hash 冲突，为什么 hashmap 中的链表需要转成红黑树？ hashmap 什么时候会触发扩容？ jdk1.8 之前并发操作 hashmap 时为什么会有死循环的问题？ hashmap 扩容时每个 entry 需要再计算一次 hash 吗？ hashmap 的数组长度为什么要保证是 2 的幂？ 如何用 LinkedHashMap 实现 LRU ？ 如何用 TreeMap 实现一致性 hash ？ 线程安全的集合 Collection.synchronized:了解其实现原理 CopyOnWriteArrayList：了解写时复制机制，了解其适用场景，思考为什么没有ConcurrentArrayList ConcurrentHashMap：了解实现原理，扩容时做的优化，与HashTable的对比 BlockingQueue：了解 LinkedBlockingQueue、ArrayBlockingQueue、DelayQueue、SynchronousQueue 常见问题 ConcurrentHashMap 是如何在保证并发安全的同时提高性能？ ConcurrentHashMap 是如何让多线程同时参与扩容？ LinkedBlockingQueue、DelayQueue 是如何实现的？ CopyOnWriteArrayList 是如何保证线程安全的？ 并发 synchronized：了解偏向锁、轻量级锁、重量级锁的概念以及升级机制、以及和 ReentrantLock 的区别 CAS：了解 AtomicInteger 实现原理、CAS 适用场景、如何实现乐观锁 AQS：了解 AQS 内部实现、及依靠 AQS 的同步类比如 ReentrantLock、Semaphore、CountDownLatch、CyclicBarrier 等的实现 ThreadLocal：了解 ThreadLocal 使用场景和内部实现 ThreadPoolExecutor：了解线程池的工作原理以及几个重要参数的设置 常见问题 synchronized 与 ReentrantLock 的区别？ 乐观锁和悲观锁的区别？ 如何实现一个乐观锁？ AQS 是如何唤醒下一个线程的？ ReentrantLock 如何实现公平和非公平锁是如何实现？ CountDownLatch 和 CyclicBarrier 的区别？各自适用于什么场景？ 适用 ThreadLocal 时要注意什么？比如说内存泄漏? 说一说往线程池里提交一个任务会发生什么？ 线程池的几个参数如何设置？ 线程池的非核心线程什么时候会被释放？ 如何排查死锁？ 引用了解 Java 中的软引用、弱引用、虚引用的适用场景以及释放机制 常见问题 软引用什么时候会被释放 弱引用什么时候会被释放 类加载了解双亲委派机制 常见问题 双亲委派机制的作用？ Tomcat 的 classloader 结构 如何自己实现一个 classloader 打破双亲委派 IO了解 BIO 和 NIO 的区别、了解多路复用机制 常见问题 同步阻塞、同步非阻塞、异步的区别？ select、poll、eopll 的区别？ java NIO 与 BIO 的区别？ refactor 线程模型是什么? JVM了解GC和内存区域 垃圾回收基本原理、几种常见的垃圾回收器的特性、重点了解 CMS （或 G1 ）以及一些重要的参数 能说清 jvm 的内存划分 常见问题 CMS GC 回收分为哪几个阶段？分别做了什么事情？ CMS 有哪些重要参数？ Concurrent Model Failure 和 ParNew promotion failed 什么情况下会发生？ CMS 的优缺点？ 有做过哪些 GC 调优？ 为什么要划分成年轻代和老年代？ 年轻代为什么被划分成 eden、survivor 区域？ 年轻代为什么采用的是复制算法？ 老年代为什么采用的是标记清除、标记整理算法 什么情况下使用堆外内存？要注意些什么？ 堆外内存如何被回收？ jvm 内存区域划分是怎样的？ Springbean 的生命周期、循环依赖问题、spring cloud （如项目中有用过）、AOP 的实现、spring 事务传播 常见问题 java 动态代理和 cglib 动态代理的区别（经常结合 spring 一起问所以就放这里了） spring 中 bean 的生命周期是怎样的？ 属性注入和构造器注入哪种会有循环依赖的问题？ Mysql事务隔离级别、锁、索引的数据结构、聚簇索引和非聚簇索引、最左匹配原则、查询优化（ explain 等命令） 常见问题 Mysql(innondb 下同) 有哪几种事务隔离级别？ 不同事务隔离级别分别会加哪些锁？ mysql 的行锁、表锁、间隙锁、意向锁分别是做什么的？ 说说什么是最左匹配？ 如何优化慢查询？ mysql 索引为什么用的是 b+ tree 而不是 b tree、红黑树 分库分表如何选择分表键 分库分表的情况下，查询时一般是如何做排序的？ 算法准备一下leetcode上的算法（easy，medium）]]></content>
+      <categories>
+        <category>plan</category>
+      </categories>
+      <tags>
+        <tag>2019</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tensorboard介绍]]></title>
+    <url>%2Ftensorboard%E4%BB%8B%E7%BB%8D.html</url>
+    <content type="text"><![CDATA[最近因为工作需要，看了下tensorboard的使用方式，这里做了简单的学习记录。使用的tensorflow版本是1.10.0,tensorboard的版本也是一样。 tensorboard介绍tensorboard主要是为了查看tensorflow程序，将程序进行图示化，可以用来查看程序的运行情况，也可以用来debug程序。 tensorflow写tensorboard日志在程序中主要使用tf.summary.FileWriter来将需要记录的事件日志记录到硬盘中。这个函数主要由三个参数需要注意的，如果想要查看详细的内容，可以去源码中查找具体的使用方式。 123logdir:指定日志写入的具体目录graph:指定记录的tensorflow图filename_suffix:事件日志文件的后缀 tensorboard启动tensorboard的启动是在命令行中，输入tensorboard --logdir=/path/to/log命令启动，然后打开ip+port在浏览器中进行查看。查看tensorboard的参数信息，可以运行tensorboard --help来进行查看。 12--inspect: 用来查看事件日志信息，并不启动tensorboard--logdir：用来指定事件日志的存储目录 tensorboard主要是扫描logdir指定目录下的内容，扫描文件名带有.tfevents.的文件进行展示。如果logdir下有多个目录，则在浏览器中可以分别进行浏览。如果有多个相同的文件，则会显示时间戳距离最近的文件。文件名中带有时间戳。例如：events.out.tfevents.1545795299.DESKTOP-123]]></content>
+      <categories>
+        <category>tensorflow</category>
+      </categories>
+      <tags>
+        <tag>tensorboard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[欧洲四国行]]></title>
+    <url>%2F%E6%AC%A7%E6%B4%B2%E5%9B%9B%E5%9B%BD%E8%A1%8C.html</url>
+    <content type="text"><![CDATA[今年九月份去了一趟欧洲,总共去了有十五天的样子。去了比利时,西班牙(巴萨罗那),葡萄牙(里斯本),法国(巴黎)四个国家。除了比利时，其他的三个国家都是只去了一个城市。 比利时比利时是我到达欧洲的第一站,第一天主要是在布鲁塞尔市内玩。去了市中心的大广场，雨果笔下世界上最美丽的广场。第一眼看到此广场，给我很大的震撼，整个广场四周全部是欧式建筑，有巴洛克式，也有哥特式。建筑上面的人物雕塑也非常精美。置身其中，你能感觉到建筑帮助我直达它所在的那个年代，像我展示着那个时代的辉煌。而且这种建筑不单单只是作为居住或者商业的功能，它的美感也是其重要的组成部分。第二天去了比利时的古城-布鲁日，还有靠近海边的城市奥斯坦德。早上早早出发，乘坐火车前往布鲁日，到了地方，渐渐的天空中开始飘起雨。可能因为前一天看了布鲁塞尔的大广场，来到布鲁日，虽然建筑很好看，但是并没有给我很大的震撼了。现在回想起来，也就能记得当时主要是沿布鲁日古城区转了转，并没有特别深的印象了。因为准备工作做得不足，本来想要去奥斯坦德看下北海的，但是到了地方之后，发现太冷了，也就没有转，下了火车就又回去了，也是一个遗憾吧。来比利时之前，并不是怎么了解这个国家。来了之后发现国家虽然小，但是有名的东西还是很多的。首先是啤酒。可能说到啤酒，大家想到的一个就是德国。但是来了比利时之后，才发现比利时啤酒才真的是啤酒的王国。首先不像德国啤酒种类较为较为单一，这里的啤酒种类非常丰富，据说有四五百种。而且大街上酒吧也非常密集。假如超市里面只有六个货架，那么光酒就能占三个货架，哈哈。来到此地，怎么能不尝尝呢？去超市买了七八种啤酒，还有一瓶产自法国勃艮第的红酒。三天时间全部被我喝完了，这里的啤酒真的名不虚传，味道真不错，比国内的啤酒强太多了。哎，现在想喝也很难喝到了。说到啤酒，为啥比利时这么多呢？据说因为比利时地势较为低，水不好喝，比较涩口，所以采用本地的水和啤酒花酿做了啤酒。原来比利时人是将啤酒作为水的替代品了。虽然啤酒种类很多，但是这里有一种啤酒很难喝到。它就是修道院啤酒。虽然价格不是很贵，但是真的很难买到，而且被评价为最好喝的啤酒。首先，全球能够生产修道院啤酒只有七个修道院，荷兰有一家，比利时占了剩下六家，三家在比利时的荷语区，三家在比利时的法语区。并且每年生产的啤酒就那么多，不会有多的。这些啤酒都是修道院里面的修士酿造的。修士除了平时进行宗教的学习，剩下很多的时间都在潜心专研如何酿造好喝的啤酒。比利时除了啤酒以外，还有它的巧克力也是全球闻名。路边的巧克力店很多。还有炸薯条。 巴塞罗那里斯本巴黎]]></content>
+      <categories>
+        <category>欧洲</category>
+        <category>旅行</category>
+      </categories>
+      <tags>
+        <tag>比利时</tag>
+        <tag>巴塞罗那</tag>
+        <tag>里斯本</tag>
+        <tag>巴黎</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker安装sshd以及修改镜像源和软件源]]></title>
+    <url>%2Fdocker%E5%AE%89%E8%A3%85sshd%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E6%BA%90%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90.html</url>
+    <content type="text"><![CDATA[总览因为最近公司需要在容器中跑深度学习任务，所以需要tensorflow的镜像。并且要求在要通过ssh进行容器的通信。这篇文章主要介绍如何在docker容器中安装软件，如何修改docker镜像源以及修改容器内部软件源地址。宿主机环境： 123uname -r : 3.10.0-862.11.6.el7.x86_64cat /etc/redhat-release : CentOS Linux release 7.5.1804 (Core)docker version : 18.06.0-ce 镜像主要选择的是官方的tensorflow:1.12.0-py3版本,镜像里面使用的系统环境下面会介绍 修改docker镜像源!参考由于docker 官方的镜像源在国外，导致下载速度很慢。所以第一步是修改docker镜像源地址。我这里采用永久修改docker镜像源地址。打开/etc/docker/daemon.json（如果没有此文件，则新建）,添加如下内容： 123&#123; "registry-mirrors": ["https://registry.docker-cn.com"]&#125; 然后运行docker pull registry.docker-cn.com/tensorflow/tensorflow:1.12.0-py3即可以拉取镜像，而且可以看到速度提升很快 启动镜像我们可以使用docker images查看本机有的镜像。针对上面拉取的tensorflow:1.12.0-py3镜像，我们执行下面命令启动 1docker run -it [image_name] /bin/bash 此时我们应该是在启动的容器中。我们可以查看容器具体的系统信息。因为tensorflow基础镜像是ubuntu，所以这里运行以下命令,因为容器中一般不会有vim命令，所以采用cat命令参看系统信息。注意下面的命令都是在容器中键入 12uname -rcat /etc/issue 查看得到系统信息为:Ubuntu 16.04.5 LTS 修改容器中软件源地址由于容器中软件源默认地址是国外的，这里换成国内的。 12cd /etc/aptcp sources.list sources.list.bak 这里使用阿里的镜像源，将sources.list里面的内容修改为如下内容: 12345678910111213# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse# deb-src http://mirrors.aliyun.com/ubuntu/ xenial main main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse# deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse# deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse# deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse# 预发布软件源，不建议启用# deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse# deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse 容器中安装软件1234passwdapt-get updateapt-get install vimapt-get install openssh-sshd 修改root密码以及安装完上面vim和openssh-sshd两个软件后，修改openssh-sshd配置文件内容。打开/etc/ssh/sshd_config将PermitRootLogin后面添加yes，即允许以root用户登录。后面启动sshd命令可能会报错，具体问题可以自己上网上搜索 生成镜像退出镜像，将容器提交为镜像 1docker commit [containerID] [image_name] 执行docker images可以看到生成的镜像。启动此镜像并开启sshd服务命令如下 12docker run -d -p 50001:22 [images_name] /usr/sbin/sshd -D其中 -d表示已后台方式启动容器，-p挂载端口 ，/usr/sbin/sshd -D 是启动命令]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>镜像源</tag>
+        <tag>软件源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[集成算法]]></title>
+    <url>%2F%E9%9B%86%E6%88%90%E7%AE%97%E6%B3%95.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[读过的书]]></title>
+    <url>%2F%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6.html</url>
+    <content type="text"><![CDATA[引言本篇主要记录自己看过的书,督促自己平时多多的读书啊! 《假如我有时光机》-村上春树2018-11-26这本书是村上春树写的,主要描写了作者在全球旅游去过的国家和城市。这是我第一次读村上春树的书，整本书看起来还是比较吸人眼球的，同时本书篇幅也不是很长。从作者的文笔中，可以感受到作者是一个待人应该很和善，同时也非常有礼貌的一个作者。通过阅读此书，不单单能够感受到作者去过的地方，也能够感受到别人在旅行中收到的感受。对于自己也是一种心理上面的成长。书中第一章写到了美国波士顿，特别是里面的查尔斯河，读完之后，有很强烈的冲动去美国玩了。应该是最近两三年的计划中。 《局外人》 -加缪2018-11-27~2018-12-4这本书主要讲述了一个杀了人的罪犯，最后被判处死刑的故事。判处死刑的原因并不是因为他杀了一个人，而是因为他在母亲的葬礼上面没有哭，还有在服丧期间干了一些在社会上认为不应该做的事情。比如看滑稽电影，跟女友做爱以及主人公不信上帝等。这些与社会上不同的事情竟然导致法官判处主角死刑。我们跳脱出来来看整个事情，会发现整个法律在执行的过程中，会强烈的加上社会倾向，即社会上认为你这个人格格不入，会导致你在法律上处于一个非常不利的地步。这本书最震撼我的事书的最后，主角主动放弃了上诉的机会，面对自己的死亡。如果人人都说你做错了，那么到底是你真的做错了，还是这个世界错了呢？ 《逻辑学导论》 -欧文·M·柯丕, 卡尔·科恩2018-12-5~ 《高效人士的七个习惯》2018-12-29~]]></content>
+      <categories>
+        <category>书</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[读过的技术书籍]]></title>
+    <url>%2F%E8%AF%BB%E8%BF%87%E7%9A%84%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D.html</url>
+    <content type="text"><![CDATA[书籍都说书籍是人类进步的阶梯,现在这篇博客就是记录下我个人梯子的组成,主要是技术相关的.隔一段时间会更新一次,因为梯子一直在增长,哈哈. 2018-11Hands-On Machine Learning with Scikit-Learn and TensorFlow这本书主要是通过scikit-learn工具包来讲解如何使用常用的机器学习算法以及机器学习算法在平常的工作中的应用流程.深度学习主要是通过tensorflow来进行讲解. Andrew Ng 斯坦福 cs229机器学习讲义想要入门机器学习的同学,强烈建议学一学Andrew Ng的这么课,最好把里面的数学公式都自己推一遍,我自己推完这些数学公式之后,对于机器学习算法中原理有了很清晰的认识.]]></content>
+      <categories>
+        <category>书</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[统计学知识]]></title>
+    <url>%2F%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%9F%A5%E8%AF%86.html</url>
+    <content type="text"><![CDATA[统计学相关知识在平常的机器学习应用中,我们首先要做的事情就是分析数据.分析数据有很多种方法,而且其中很多方法都是统计学中的内容.本篇blog主要记录我认为平常经常能够用到的统计学内容. 箱线图(box)箱线图主要是用来分析数据中的异常值,在数据分析中非常有用.同时它也能够用来分析某一个特征跟预测值之间的关系,参考.如下图所示 在python的seaborn包中画箱线图主要是调用boxplot函数,具体的使用方法可以查看相关文档. 12import seaborn as snssns.boxplot(x,y,data)]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>统计学</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[svm原理介绍]]></title>
     <url>%2Fsvm%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D.html</url>
     <content type="text"><![CDATA[支持向量机这篇博客主要介绍如何推导svm算法。写这篇博客主要是最近在学习svm算法，想着合上书，自己推导一遍算法的原理，发现还是有很多需要思考的地方。其实一般推导机器学习算法，是有一个模式的。 定义模型，这里模型理解为如何定义公式 选择损失函数 采用优化算法求损失函数的最小值 推导完毕 比如拿逻辑回归算法举例： 定义模型，即选取sigmoid函数 定义损失函数 采用最大梯度下降算法求损失函数的最小值 得到算法的w和b 但是svm的推导基本上没有怎么提损失函数的内容，大家等会可以在这篇博客中看到如何推导svm算法 判别函数h_{w,b}(x) = g(w^T + b)上式是SVM的判别函数，其中函数g如下所示： g(z)=\left\{ \begin{array}{rcl} 1 & & {z \geq 0 }\\ -1 & & {z < 0 } \end{array} \right.即$g(z)$的输出为1时，判别为正例；输出为-1时，判别为反例。 函数间隔和几何间隔(Functional and geometric margins)函数间隔对于某一个训练样本$(x^(i), y^(i))$定义函数间隔如下式： \hat{\gamma}^{(i)} = y^{(i)}(w^T + b)分析函数间隔公式,可以得出如下的结论.当$y^{(i)}=1$时,则$w^T+b&gt;0$,所以$g(z) = 1$;当$y^{(i)}=-1$时,则$w^T+b&lt;0$,所以$g(z) = -1$.所以函数间隔对于判别样本的类别是有作用的.但是,当我们将$w,b$扩大两倍时,函数函数间隔扩大两倍,但是对于$g(z)$并没有什么变化.即下式成立 g(2w^T+2b) = g(w^T+b)所以更大的函数间隔并不一定比小的函数间隔的置信度大.由此引出了几何间隔 几何间隔针对几何间隔,我们考虑二维平面,如下图所示:图中的斜线是对应于参数$(w,b)$的决策分隔线.注意$w$是垂直于决策线的,即$w$是决策线的法向量. 证明如下:设$x_0,x_1$是直线$w^T+b=0$上不同的两个点,则有下式成立 \left\{ \begin{array}{rcl} w^Tx_0 + b = 0 & & \\ w^Tx_1 + b = 0 & & \end{array} \right.两式相减的$w^T(x_0 - x_1) = 0$,而其中$x_0 - x_1$是直线$w^T+b=0$的方向向量,所以w是法向量. 图中$\gamma^{(i)}$是A点对应的几何间隔.设A点为$x^{(i)}$,而向量$w/{\left|w\right|}$是法向量上的单位向量.因此得到B点为$x^{(i)} - \gamma^{(i)}\cdot w/{\left|w\right|}$,又因为B点在分离平面上,所以下式成立: w^T(x^{(i)} - \gamma^{(i)}{\frac w {\left\|w\right\|}}) = 0从而得到下式: \gamma^{(i)} = {\frac {w^Tx^{(i)}+b} {\left\|w\right\|} }=({\frac w {\left\|w\right\|}})^Tx^{(i)} + {\frac b {\left\|w\right\|} }如果A点在B点的另外一侧,则B点可以表示为下式: x^{(i)} + \gamma^{(i)}\cdot w/{\left\|w\right\|}$$,带入分离超平面,得到几何间隔如下: $$\gamma^{(i)} = -{\frac {w^Tx^{(i)}+b} {\left\|w\right\|} }综合两种情况,得到 \gamma^{(i)} =y^{(i)}(({\frac w {\left\|w\right\|}})^Tx^{(i)} + {\frac b {\left\|w\right\|} })具体的公式推导过程中,并没有完全限制在二维平面上(虽然开始展示的图像是二维平面上的),所以对于高维平面也是得到上述公式.几何间隔反应了样本到分离面的距离,直观上最小的几何间隔越大越好.并且几何间隔中的参数$w,b$可以随意的进行尺度变换而不影响几何间隔的大小(这是因为几何间隔的式子中除以了w的二范数).同时当$\left|w\right|=1$时,几何间隔就等于函数间隔.定义 \hat{\gamma} = \min_{i=1,...,m}{\hat{\gamma}^{(i)}}{\gamma} = \min_{i=1,...,m}{\gamma}^{(i)}即$\hat{\gamma}$和${\gamma}$分别是函数间隔和几何间隔的最小值. 最优间隔分类器通过上面的函数间隔和几何间隔,我们自然能够想到优化目标如下式所示: \max_{\gamma,w,b} {\gamma} \\ s.t.\quad y^{(i)}(w^T + b) \geq \gamma, i=1,...,m \\ \left\|w\right\|=1 \tag{1.1}即在满足所有样本的几何间隔都大于最小几何间隔的情况下,求使得几何间隔最大的参数$w,b$我们可以将上述优化公式转变成用函数间隔进行表达,如下式所示: \max_{\gamma,w,b} {\frac {\hat\gamma} {\left\|w\right\|}}\\ s.t.\quad y^{(i)}(w^T + b) \geq \hat\gamma, i=1,...,m \tag{1.2} 上述两个优化问题为什么等价?因为$\gamma={\frac {\hat\gamma} {\left|w\right|}}$.针对优化公式(1.2),即求取几何间隔最大,同时在约束不等式两边同时除以$\left|w\right|$,即得所有的几何间隔都大于最小的几何间隔.这即等价于优化公式(1.1) 由于参数$w,b$进行尺度变化,所以我们可以固定函数间隔等于1,即$\hat\gamma=1$最终将优化公式化简为下式: \min_{\gamma,w,b}{\frac 1 2}{\left\|w\right\|}^2 \\ s.t.\quad y^{(i)}(w^T + b) \geq 1, i=1,...,m \tag{1.3}针对这个优化公式,即满足不等式的条件下,求取二次函数的最小值,虽然可以采用优化算法求取此最优值.但是我们下面介绍拉格朗日对偶来进行求取,第一求取最优值会变得更加简单,第二能够使用核函数. 拉格朗日对偶(Lagrange duality)拉格朗日对偶主要是将优化公式转变为其对偶形式,具体的推导过程可以参考Andrew Ng cs229课程中的内容. 再次求解最优间隔分类器通过拉格朗日对偶,将SVM的优化目标转变为对偶形式,从而得到参数$w,b$]]></content>

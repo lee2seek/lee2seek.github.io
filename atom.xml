@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lightnine/github.io/"/>
-  <updated>2018-10-28T09:31:17.961Z</updated>
+  <updated>2019-03-20T07:09:56.268Z</updated>
   <id>https://lightnine/github.io/</id>
   
   <author>
@@ -15,6 +15,206 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019-plan-and-learn</title>
+    <link href="https://lightnine/github.io/2019-plan-and-learn.html"/>
+    <id>https://lightnine/github.io/2019-plan-and-learn.html</id>
+    <published>2019-01-05T09:08:14.000Z</published>
+    <updated>2019-03-20T07:09:56.268Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="2019计划"><a href="#2019计划" class="headerlink" title="2019计划"></a>2019计划</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol><li>掌握tensorflow的使用</li><li>掌握Python以及常用库(numpy,matplotlib,pandas)的使用</li><li>掌握常用机器学习算法(SVM,AdaBoost,LightGBM)的使用以及理论</li><li>掌握深度学习常用算法应用和理论</li><li>掌握英语单词5000个,提高自己的英语发音</li><li>spark大数据分析技术</li><li>linux相关技术</li><li>Java相关技术</li></ol><h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>今天看了一篇虎扑上面&lt;非CS专业转行机器学习/人工智能阶段性成功，分享一点个人经验吧&gt;的帖子，感触比较多，摘一点帖子里面的内容，为之后的学习提供一定的建议。<br>楼主的情况是没有人工智能基础的，为了找到人工智能的工作准备了两年时间。</p><p>编程：掌握一门语言，要达到非常熟悉的阶段。<br>数据结构：掌握常用的数据结构，多做leetcode上面的编程题目，至少要刷一下easy和medium模式的题目，写的时候考虑test case<br>机器学习：</p><pre><code>1. andrew ng的machine learning，仔细看课件和习题2. hands on machine learning with scikit-learn and tensorflow，并且在pythhon中实践还有课后习题3. bishop的pattern recognition and machine learning4. 李彦宏的机器学习和深度学习(自己加的)5. 李航的统计机器学习（自己加的）</code></pre><h2 id="Java相关技术"><a href="#Java相关技术" class="headerlink" title="Java相关技术"></a>Java相关技术</h2><p>参考了<a href="https://www.v2ex.com/t/546203" target="_blank" rel="noopener">v2ex</a> 或者<a href="https://github.com/farmerjohngit/myblog" target="_blank" rel="noopener">github</a><br>这里做了一个思维导图<br><img src="/2019-plan-and-learn/Java相关知识学习思维导图.PNG" title="Java相关知识学习思维导图"><br>下面进行思维导图的一些解释。<strong>同时对这些技能点进行查漏补缺，同时也会在之后的过程中添加更多的技能点</strong></p><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合主要是java.util包下的非线程安全和线程安全集合</p><h4 id="非线程安全"><a href="#非线程安全" class="headerlink" title="非线程安全"></a>非线程安全</h4><ol><li>List： ArrayList与LinkedList的实现和区别</li><li>Map：<ul><li>HashMap:了解其数据结构，源码，hash冲突如何解决(链表和红黑树)，扩容时机，扩容时避免rehash优化</li><li>LinkedHashMap:了解基本原理，哪两种有序，如何实现LRU</li><li>TreeMap：了解数据结构，了解其key对象为什么必须要实现Compare接口，如何用它实现一致性哈希</li></ul></li><li>Set：基本上是由map实现，简单看看就好</li></ol><p><strong>常见问题</strong></p><ul><li>hashmap 如何解决 hash 冲突，为什么 hashmap 中的链表需要转成红黑树？</li><li>hashmap 什么时候会触发扩容？</li><li>jdk1.8 之前并发操作 hashmap 时为什么会有死循环的问题？</li><li>hashmap 扩容时每个 entry 需要再计算一次 hash 吗？</li><li>hashmap 的数组长度为什么要保证是 2 的幂？</li><li>如何用 LinkedHashMap 实现 LRU ？</li><li>如何用 TreeMap 实现一致性 hash ？</li></ul><h4 id="线程安全的集合"><a href="#线程安全的集合" class="headerlink" title="线程安全的集合"></a>线程安全的集合</h4><ol><li>Collection.synchronized:了解其实现原理</li><li>CopyOnWriteArrayList：了解写时复制机制，了解其适用场景，思考为什么没有ConcurrentArrayList</li><li>ConcurrentHashMap：了解实现原理，扩容时做的优化，与HashTable的对比</li><li>BlockingQueue：了解 LinkedBlockingQueue、ArrayBlockingQueue、DelayQueue、SynchronousQueue</li></ol><p><strong>常见问题</strong></p><ul><li>ConcurrentHashMap 是如何在保证并发安全的同时提高性能？</li><li>ConcurrentHashMap 是如何让多线程同时参与扩容？</li><li>LinkedBlockingQueue、DelayQueue 是如何实现的？</li><li>CopyOnWriteArrayList 是如何保证线程安全的？</li></ul><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><ol><li>synchronized：了解偏向锁、轻量级锁、重量级锁的概念以及升级机制、以及和 ReentrantLock 的区别</li><li>CAS：了解 AtomicInteger 实现原理、CAS 适用场景、如何实现乐观锁</li><li>AQS：了解 AQS 内部实现、及依靠 AQS 的同步类比如 ReentrantLock、Semaphore、CountDownLatch、CyclicBarrier 等的实现</li><li>ThreadLocal：了解 ThreadLocal 使用场景和内部实现</li><li>ThreadPoolExecutor：了解线程池的工作原理以及几个重要参数的设置</li></ol><p><strong>常见问题</strong></p><ul><li>synchronized 与 ReentrantLock 的区别？</li><li>乐观锁和悲观锁的区别？</li><li>如何实现一个乐观锁？</li><li>AQS 是如何唤醒下一个线程的？</li><li>ReentrantLock 如何实现公平和非公平锁是如何实现？</li><li>CountDownLatch 和 CyclicBarrier 的区别？各自适用于什么场景？</li><li>适用 ThreadLocal 时要注意什么？比如说内存泄漏?</li><li>说一说往线程池里提交一个任务会发生什么？</li><li>线程池的几个参数如何设置？</li><li>线程池的非核心线程什么时候会被释放？</li><li>如何排查死锁？</li></ul><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>了解 Java 中的软引用、弱引用、虚引用的适用场景以及释放机制</p><p><strong>常见问题</strong></p><ul><li>软引用什么时候会被释放</li><li>弱引用什么时候会被释放</li></ul><h3 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h3><p>了解双亲委派机制</p><p><strong>常见问题</strong></p><ul><li>双亲委派机制的作用？</li><li>Tomcat 的 classloader 结构</li><li>如何自己实现一个 classloader 打破双亲委派</li></ul><h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><p>了解 BIO 和 NIO 的区别、了解多路复用机制</p><p><strong>常见问题</strong></p><ul><li>同步阻塞、同步非阻塞、异步的区别？</li><li>select、poll、eopll 的区别？</li><li>java NIO 与 BIO 的区别？</li><li>refactor 线程模型是什么?</li></ul><h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><p>了解GC和内存区域</p><ol><li>垃圾回收基本原理、几种常见的垃圾回收器的特性、重点了解 CMS （或 G1 ）以及一些重要的参数</li><li>能说清 jvm 的内存划分</li></ol><p><strong>常见问题</strong></p><ul><li>CMS GC 回收分为哪几个阶段？分别做了什么事情？</li><li>CMS 有哪些重要参数？</li><li>Concurrent Model Failure 和 ParNew promotion failed 什么情况下会发生？</li><li>CMS 的优缺点？</li><li>有做过哪些 GC 调优？</li><li>为什么要划分成年轻代和老年代？</li><li>年轻代为什么被划分成 eden、survivor 区域？</li><li>年轻代为什么采用的是复制算法？</li><li>老年代为什么采用的是标记清除、标记整理算法</li><li>什么情况下使用堆外内存？要注意些什么？</li><li>堆外内存如何被回收？</li><li>jvm 内存区域划分是怎样的？</li></ul><h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><p>bean 的生命周期、循环依赖问题、spring cloud （如项目中有用过）、AOP 的实现、spring 事务传播</p><p><strong>常见问题</strong></p><ul><li>java 动态代理和 cglib 动态代理的区别（经常结合 spring 一起问所以就放这里了）</li><li>spring 中 bean 的生命周期是怎样的？</li><li>属性注入和构造器注入哪种会有循环依赖的问题？</li></ul><h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>事务隔离级别、锁、索引的数据结构、聚簇索引和非聚簇索引、最左匹配原则、查询优化（ explain 等命令）</p><p><strong>常见问题</strong></p><ul><li>Mysql(innondb 下同) 有哪几种事务隔离级别？</li><li>不同事务隔离级别分别会加哪些锁？</li><li>mysql 的行锁、表锁、间隙锁、意向锁分别是做什么的？</li><li>说说什么是最左匹配？</li><li>如何优化慢查询？</li><li>mysql 索引为什么用的是 b+ tree 而不是 b tree、红黑树</li><li>分库分表如何选择分表键</li><li>分库分表的情况下，查询时一般是如何做排序的？</li></ul><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>准备一下leetcode上的算法（easy，medium）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;2019计划&quot;&gt;&lt;a href=&quot;#2019计划&quot; class=&quot;headerlink&quot; title=&quot;2019计划&quot;&gt;&lt;/a&gt;2019计划&lt;/h1&gt;&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="plan" scheme="https://lightnine/github.io/categories/plan/"/>
+    
+    
+      <category term="2019" scheme="https://lightnine/github.io/tags/2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tensorboard介绍</title>
+    <link href="https://lightnine/github.io/tensorboard%E4%BB%8B%E7%BB%8D.html"/>
+    <id>https://lightnine/github.io/tensorboard介绍.html</id>
+    <published>2018-12-26T03:23:15.000Z</published>
+    <updated>2018-12-26T03:36:06.078Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近因为工作需要，看了下tensorboard的使用方式，这里做了简单的学习记录。使用的tensorflow版本是<strong>1.10.0</strong>,tensorboard的版本也是一样。</p><h1 id="tensorboard介绍"><a href="#tensorboard介绍" class="headerlink" title="tensorboard介绍"></a>tensorboard介绍</h1><p>tensorboard主要是为了查看tensorflow程序，将程序进行图示化，可以用来查看程序的运行情况，也可以用来debug程序。</p><h2 id="tensorflow写tensorboard日志"><a href="#tensorflow写tensorboard日志" class="headerlink" title="tensorflow写tensorboard日志"></a>tensorflow写tensorboard日志</h2><p>在程序中主要使用<code>tf.summary.FileWriter</code>来将需要记录的事件日志记录到硬盘中。这个函数主要由三个参数需要注意的，如果想要查看详细的内容，可以去源码中查找具体的使用方式。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logdir:</span><span class="string">指定日志写入的具体目录</span></span><br><span class="line"><span class="attr">graph:</span><span class="string">指定记录的tensorflow图</span></span><br><span class="line"><span class="attr">filename_suffix:</span><span class="string">事件日志文件的后缀</span></span><br></pre></td></tr></table></figure><h2 id="tensorboard启动"><a href="#tensorboard启动" class="headerlink" title="tensorboard启动"></a>tensorboard启动</h2><p>tensorboard的启动是在命令行中，输入<code>tensorboard --logdir=/path/to/log</code>命令启动，然后打开ip+port在浏览器中进行查看。查看tensorboard的参数信息，可以运行<code>tensorboard --help</code>来进行查看。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">--inspect:</span> <span class="string">用来查看事件日志信息，并不启动tensorboard</span></span><br><span class="line"><span class="bullet">-</span><span class="bullet">-logdir：用来指定事件日志的存储目录</span></span><br></pre></td></tr></table></figure><p>tensorboard主要是扫描logdir指定目录下的内容，扫描文件名带有<em>.tfevents.</em>的文件进行展示。如果logdir下有多个目录，则在浏览器中可以分别进行浏览。如果有多个相同的文件，则会显示时间戳距离最近的文件。文件名中带有时间戳。例如：<strong>events.out.tfevents.1545795299.DESKTOP-123</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近因为工作需要，看了下tensorboard的使用方式，这里做了简单的学习记录。使用的tensorflow版本是&lt;strong&gt;1.10.0&lt;/strong&gt;,tensorboard的版本也是一样。&lt;/p&gt;
+&lt;h1 id=&quot;tensorboard介绍&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="tensorflow" scheme="https://lightnine/github.io/categories/tensorflow/"/>
+    
+    
+      <category term="tensorboard" scheme="https://lightnine/github.io/tags/tensorboard/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欧洲四国行</title>
+    <link href="https://lightnine/github.io/%E6%AC%A7%E6%B4%B2%E5%9B%9B%E5%9B%BD%E8%A1%8C.html"/>
+    <id>https://lightnine/github.io/欧洲四国行.html</id>
+    <published>2018-12-22T12:36:16.000Z</published>
+    <updated>2018-12-22T13:10:56.072Z</updated>
+    
+    <content type="html"><![CDATA[<p>今年九月份去了一趟欧洲,总共去了有十五天的样子。去了比利时,西班牙(巴萨罗那),葡萄牙(里斯本),法国(巴黎)四个国家。除了比利时，其他的三个国家都是只去了一个城市。</p><h1 id="比利时"><a href="#比利时" class="headerlink" title="比利时"></a>比利时</h1><p>比利时是我到达欧洲的第一站,第一天主要是在布鲁塞尔市内玩。去了市中心的大广场，雨果笔下世界上最美丽的广场。第一眼看到此广场，给我很大的震撼，整个广场四周全部是欧式建筑，有巴洛克式，也有哥特式。建筑上面的人物雕塑也非常精美。置身其中，你能感觉到建筑帮助我直达它所在的那个年代，像我展示着那个时代的辉煌。而且这种建筑不单单只是作为居住或者商业的功能，它的美感也是其重要的组成部分。第二天去了比利时的古城-布鲁日，还有靠近海边的城市奥斯坦德。早上早早出发，乘坐火车前往布鲁日，到了地方，渐渐的天空中开始飘起雨。可能因为前一天看了布鲁塞尔的大广场，来到布鲁日，虽然建筑很好看，但是并没有给我很大的震撼了。现在回想起来，也就能记得当时主要是沿布鲁日古城区转了转，并没有特别深的印象了。因为准备工作做得不足，本来想要去奥斯坦德看下北海的，但是到了地方之后，发现太冷了，也就没有转，下了火车就又回去了，也是一个遗憾吧。<br>来比利时之前，并不是怎么了解这个国家。来了之后发现国家虽然小，但是有名的东西还是很多的。首先是啤酒。可能说到啤酒，大家想到的一个就是德国。但是来了比利时之后，才发现比利时啤酒才真的是啤酒的王国。首先不像德国啤酒种类较为较为单一，这里的啤酒种类非常丰富，据说有四五百种。而且大街上酒吧也非常密集。假如超市里面只有六个货架，那么光酒就能占三个货架，哈哈。来到此地，怎么能不尝尝呢？去超市买了七八种啤酒，还有一瓶产自法国勃艮第的红酒。三天时间全部被我喝完了，这里的啤酒真的名不虚传，味道真不错，比国内的啤酒强太多了。哎，现在想喝也很难喝到了。说到啤酒，为啥比利时这么多呢？据说因为比利时地势较为低，水不好喝，比较涩口，所以采用本地的水和啤酒花酿做了啤酒。原来比利时人是将啤酒作为水的替代品了。虽然啤酒种类很多，但是这里有一种啤酒很难喝到。它就是修道院啤酒。虽然价格不是很贵，但是真的很难买到，而且被评价为最好喝的啤酒。首先，全球能够生产修道院啤酒只有七个修道院，荷兰有一家，比利时占了剩下六家，三家在比利时的荷语区，三家在比利时的法语区。并且每年生产的啤酒就那么多，不会有多的。这些啤酒都是修道院里面的修士酿造的。修士除了平时进行宗教的学习，剩下很多的时间都在潜心专研如何酿造好喝的啤酒。比利时除了啤酒以外，还有它的巧克力也是全球闻名。路边的巧克力店很多。还有炸薯条。</p><h1 id="巴塞罗那"><a href="#巴塞罗那" class="headerlink" title="巴塞罗那"></a>巴塞罗那</h1><h1 id="里斯本"><a href="#里斯本" class="headerlink" title="里斯本"></a>里斯本</h1><h1 id="巴黎"><a href="#巴黎" class="headerlink" title="巴黎"></a>巴黎</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今年九月份去了一趟欧洲,总共去了有十五天的样子。去了比利时,西班牙(巴萨罗那),葡萄牙(里斯本),法国(巴黎)四个国家。除了比利时，其他的三个国家都是只去了一个城市。&lt;/p&gt;
+&lt;h1 id=&quot;比利时&quot;&gt;&lt;a href=&quot;#比利时&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+      <category term="欧洲" scheme="https://lightnine/github.io/categories/%E6%AC%A7%E6%B4%B2/"/>
+    
+      <category term="旅行" scheme="https://lightnine/github.io/categories/%E6%AC%A7%E6%B4%B2/%E6%97%85%E8%A1%8C/"/>
+    
+    
+      <category term="比利时" scheme="https://lightnine/github.io/tags/%E6%AF%94%E5%88%A9%E6%97%B6/"/>
+    
+      <category term="巴塞罗那" scheme="https://lightnine/github.io/tags/%E5%B7%B4%E5%A1%9E%E7%BD%97%E9%82%A3/"/>
+    
+      <category term="里斯本" scheme="https://lightnine/github.io/tags/%E9%87%8C%E6%96%AF%E6%9C%AC/"/>
+    
+      <category term="巴黎" scheme="https://lightnine/github.io/tags/%E5%B7%B4%E9%BB%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker安装sshd以及修改镜像源和软件源</title>
+    <link href="https://lightnine/github.io/docker%E5%AE%89%E8%A3%85sshd%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E6%BA%90%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90.html"/>
+    <id>https://lightnine/github.io/docker安装sshd以及修改镜像源和软件源.html</id>
+    <published>2018-12-20T08:26:08.000Z</published>
+    <updated>2018-12-20T09:05:11.507Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><p>因为最近公司需要在容器中跑深度学习任务，所以需要tensorflow的镜像。并且要求在要通过ssh进行容器的通信。这篇文章主要介绍如何在docker容器中安装软件，如何修改docker镜像源以及修改容器内部软件源地址。<br>宿主机环境：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r : 3.10.0-862.11.6.el7.x86_64</span><br><span class="line">cat /etc/redhat-release : CentOS Linux release 7.5.1804 (Core)</span><br><span class="line">docker version : 18.06.0-ce</span><br></pre></td></tr></table></figure><p>镜像主要选择的是官方的tensorflow:1.12.0-py3版本,镜像里面使用的系统环境下面会介绍</p><h2 id="修改docker镜像源"><a href="#修改docker镜像源" class="headerlink" title="修改docker镜像源"></a>修改docker镜像源</h2><p><a href="https://www.docker-cn.com/registry-mirror" target="_blank" rel="noopener">!参考</a><br>由于docker 官方的镜像源在国外，导致下载速度很慢。所以第一步是修改docker镜像源地址。我这里采用永久修改docker镜像源地址。打开<code>/etc/docker/daemon.json</code>（如果没有此文件，则新建）,添加如下内容：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="attr">  "registry-mirrors":</span> <span class="string">["https://registry.docker-cn.com"]</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><p>然后运行<code>docker pull registry.docker-cn.com/tensorflow/tensorflow:1.12.0-py3</code><br>即可以拉取镜像，而且可以看到速度提升很快</p><h2 id="启动镜像"><a href="#启动镜像" class="headerlink" title="启动镜像"></a>启动镜像</h2><p>我们可以使用<code>docker images</code>查看本机有的镜像。针对上面拉取的tensorflow:1.12.0-py3镜像，我们执行下面命令启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it [image_name] /bin/bash</span><br></pre></td></tr></table></figure><p>此时我们应该是在启动的容器中。我们可以查看容器具体的系统信息。因为tensorflow基础镜像是ubuntu，所以这里运行以下命令,因为容器中一般不会有vim命令，所以采用cat命令参看系统信息。注意下面的命令都是在容器中键入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure><p>查看得到系统信息为:Ubuntu 16.04.5 LTS</p><h2 id="修改容器中软件源地址"><a href="#修改容器中软件源地址" class="headerlink" title="修改容器中软件源地址"></a>修改容器中软件源地址</h2><p>由于容器中软件源默认地址是国外的，这里换成国内的。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/apt</span><br><span class="line">cp sources.list sources.list.bak</span><br></pre></td></tr></table></figure><p>这里使用阿里的镜像源，将sources.list里面的内容修改为如下内容:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line"><span class="string">deb</span> <span class="attr">http://mirrors.aliyun.com/ubuntu/</span> <span class="string">xenial</span> <span class="string">main</span> <span class="string">restricted</span> <span class="string">universe</span> <span class="string">multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://mirrors.aliyun.com/ubuntu/ xenial main main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb</span> <span class="attr">http://mirrors.aliyun.com/ubuntu/</span> <span class="string">xenial-updates</span> <span class="string">main</span> <span class="string">restricted</span> <span class="string">universe</span> <span class="string">multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb</span> <span class="attr">http://mirrors.aliyun.com/ubuntu/</span> <span class="string">xenial-backports</span> <span class="string">main</span> <span class="string">restricted</span> <span class="string">universe</span> <span class="string">multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb</span> <span class="attr">http://mirrors.aliyun.com/ubuntu/</span> <span class="string">xenial-security</span> <span class="string">main</span> <span class="string">restricted</span> <span class="string">universe</span> <span class="string">multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure><h2 id="容器中安装软件"><a href="#容器中安装软件" class="headerlink" title="容器中安装软件"></a>容器中安装软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br><span class="line">apt-get install openssh-sshd</span><br></pre></td></tr></table></figure><p>修改root密码以及安装完上面vim和openssh-sshd两个软件后，修改openssh-sshd配置文件内容。打开<code>/etc/ssh/sshd_config</code>将<code>PermitRootLogin</code>后面添加yes，即允许以root用户登录。后面启动sshd命令可能会报错，具体问题可以自己上网上搜索</p><h2 id="生成镜像"><a href="#生成镜像" class="headerlink" title="生成镜像"></a>生成镜像</h2><p>退出镜像，将容器提交为镜像</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit [containerID] [image_name]</span><br></pre></td></tr></table></figure><p>执行<code>docker images</code>可以看到生成的镜像。启动此镜像并开启sshd服务命令如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  -p 50001:22 [images_name] /usr/sbin/sshd -D</span><br><span class="line">其中 -d表示已后台方式启动容器，-p挂载端口 ，/usr/sbin/sshd -D 是启动命令</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;总览&quot;&gt;&lt;a href=&quot;#总览&quot; class=&quot;headerlink&quot; title=&quot;总览&quot;&gt;&lt;/a&gt;总览&lt;/h1&gt;&lt;p&gt;因为最近公司需要在容器中跑深度学习任务，所以需要tensorflow的镜像。并且要求在要通过ssh进行容器的通信。这篇文章主要介绍如何在do
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://lightnine/github.io/categories/docker/"/>
+    
+    
+      <category term="镜像源" scheme="https://lightnine/github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/"/>
+    
+      <category term="软件源" scheme="https://lightnine/github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>集成算法</title>
+    <link href="https://lightnine/github.io/%E9%9B%86%E6%88%90%E7%AE%97%E6%B3%95.html"/>
+    <id>https://lightnine/github.io/集成算法.html</id>
+    <published>2018-12-01T12:17:34.000Z</published>
+    <updated>2018-12-01T12:17:34.938Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读过的书</title>
+    <link href="https://lightnine/github.io/%E8%AF%BB%E8%BF%87%E7%9A%84%E4%B9%A6.html"/>
+    <id>https://lightnine/github.io/读过的书.html</id>
+    <published>2018-11-26T11:28:20.000Z</published>
+    <updated>2019-01-05T08:49:46.972Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本篇主要记录自己看过的书,督促自己平时多多的读书啊!</p><h2 id="《假如我有时光机》-村上春树"><a href="#《假如我有时光机》-村上春树" class="headerlink" title="《假如我有时光机》-村上春树"></a>《假如我有时光机》-村上春树</h2><p><strong>2018-11-26</strong><br>这本书是村上春树写的,主要描写了作者在全球旅游去过的国家和城市。这是我第一次读村上春树的书，整本书看起来还是比较吸人眼球的，同时本书篇幅也不是很长。从作者的文笔中，可以感受到作者是一个待人应该很和善，同时也非常有礼貌的一个作者。通过阅读此书，不单单能够感受到作者去过的地方，也能够感受到别人在旅行中收到的感受。对于自己也是一种心理上面的成长。书中第一章写到了美国波士顿，特别是里面的查尔斯河，读完之后，有很强烈的冲动去美国玩了。应该是最近两三年的计划中。</p><h2 id="《局外人》-加缪"><a href="#《局外人》-加缪" class="headerlink" title="《局外人》 -加缪"></a>《局外人》 -加缪</h2><p><strong>2018-11-27~2018-12-4</strong><br>这本书主要讲述了一个杀了人的罪犯，最后被判处死刑的故事。判处死刑的原因并不是因为他杀了一个人，而是因为他在母亲的葬礼上面没有哭，还有在服丧期间干了一些在社会上认为不应该做的事情。比如看滑稽电影，跟女友做爱以及主人公不信上帝等。这些与社会上不同的事情竟然导致法官判处主角死刑。我们跳脱出来来看整个事情，会发现整个法律在执行的过程中，会强烈的加上社会倾向，即社会上认为你这个人格格不入，会导致你在法律上处于一个非常不利的地步。这本书最震撼我的事书的最后，主角主动放弃了上诉的机会，面对自己的死亡。如果人人都说你做错了，那么到底是你真的做错了，还是这个世界错了呢？</p><h2 id="《逻辑学导论》-欧文·M·柯丕-卡尔·科恩"><a href="#《逻辑学导论》-欧文·M·柯丕-卡尔·科恩" class="headerlink" title="《逻辑学导论》 -欧文·M·柯丕, 卡尔·科恩"></a>《逻辑学导论》 -欧文·M·柯丕, 卡尔·科恩</h2><p><strong>2018-12-5~</strong></p><h2 id="《高效人士的七个习惯》"><a href="#《高效人士的七个习惯》" class="headerlink" title="《高效人士的七个习惯》"></a>《高效人士的七个习惯》</h2><p><strong>2018-12-29~</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;本篇主要记录自己看过的书,督促自己平时多多的读书啊!&lt;/p&gt;
+&lt;h2 id=&quot;《假如我有时光机》-村上春树&quot;&gt;&lt;a href=&quot;#《假如我有
+      
+    
+    </summary>
+    
+      <category term="书" scheme="https://lightnine/github.io/categories/%E4%B9%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读过的技术书籍</title>
+    <link href="https://lightnine/github.io/%E8%AF%BB%E8%BF%87%E7%9A%84%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D.html"/>
+    <id>https://lightnine/github.io/读过的技术书籍.html</id>
+    <published>2018-11-16T11:10:07.000Z</published>
+    <updated>2018-11-16T11:16:58.130Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><p>都说书籍是人类进步的阶梯,现在这篇博客就是记录下我个人梯子的组成,主要是技术相关的.隔一段时间会更新一次,因为梯子一直在增长,哈哈.</p><h2 id="2018-11"><a href="#2018-11" class="headerlink" title="2018-11"></a>2018-11</h2><h3 id="Hands-On-Machine-Learning-with-Scikit-Learn-and-TensorFlow"><a href="#Hands-On-Machine-Learning-with-Scikit-Learn-and-TensorFlow" class="headerlink" title="Hands-On Machine Learning with Scikit-Learn and TensorFlow"></a>Hands-On Machine Learning with Scikit-Learn and TensorFlow</h3><p>这本书主要是通过scikit-learn工具包来讲解如何使用常用的机器学习算法以及机器学习算法在平常的工作中的应用流程.深度学习主要是通过tensorflow来进行讲解.</p><h3 id="Andrew-Ng-斯坦福-cs229机器学习讲义"><a href="#Andrew-Ng-斯坦福-cs229机器学习讲义" class="headerlink" title="Andrew Ng 斯坦福 cs229机器学习讲义"></a>Andrew Ng 斯坦福 cs229机器学习讲义</h3><p>想要入门机器学习的同学,强烈建议学一学Andrew Ng的这么课,最好把里面的数学公式都自己推一遍,我自己推完这些数学公式之后,对于机器学习算法中原理有了很清晰的认识.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;书籍&quot;&gt;&lt;a href=&quot;#书籍&quot; class=&quot;headerlink&quot; title=&quot;书籍&quot;&gt;&lt;/a&gt;书籍&lt;/h1&gt;&lt;p&gt;都说书籍是人类进步的阶梯,现在这篇博客就是记录下我个人梯子的组成,主要是技术相关的.隔一段时间会更新一次,因为梯子一直在增长,哈哈.&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="书" scheme="https://lightnine/github.io/categories/%E4%B9%A6/"/>
+    
+    
+      <category term="技术" scheme="https://lightnine/github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>统计学知识</title>
+    <link href="https://lightnine/github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%9F%A5%E8%AF%86.html"/>
+    <id>https://lightnine/github.io/统计学知识.html</id>
+    <published>2018-11-02T01:32:48.000Z</published>
+    <updated>2018-11-02T01:40:53.960Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="统计学相关知识"><a href="#统计学相关知识" class="headerlink" title="统计学相关知识"></a>统计学相关知识</h1><p>在平常的机器学习应用中,我们首先要做的事情就是分析数据.分析数据有很多种方法,而且其中很多方法都是统计学中的内容.本篇blog主要记录我认为平常经常能够用到的统计学内容.</p><h2 id="箱线图-box"><a href="#箱线图-box" class="headerlink" title="箱线图(box)"></a>箱线图(box)</h2><p>箱线图主要是用来分析数据中的异常值,在数据分析中非常有用.同时它也能够用来分析某一个特征跟预测值之间的关系,<a href="https://blog.csdn.net/clairliu/article/details/79217546" target="_blank" rel="noopener">参考</a>.如下图所示<br><img src="/统计学知识/箱线图.png" title="箱线图"></p><p>在python的seaborn包中画箱线图主要是调用<strong>boxplot</strong>函数,具体的使用方法可以查看相关文档.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.boxplot(x,y,data)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;统计学相关知识&quot;&gt;&lt;a href=&quot;#统计学相关知识&quot; class=&quot;headerlink&quot; title=&quot;统计学相关知识&quot;&gt;&lt;/a&gt;统计学相关知识&lt;/h1&gt;&lt;p&gt;在平常的机器学习应用中,我们首先要做的事情就是分析数据.分析数据有很多种方法,而且其中很多方法都是统
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://lightnine/github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="统计学" scheme="https://lightnine/github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>svm原理介绍</title>
@@ -346,57 +546,6 @@
     
     
       <category term="技术" scheme="https://lightnine/github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CS231n Convolutional Neural Networks for Visual Recognition</title>
-    <link href="https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html"/>
-    <id>https://lightnine/github.io/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition.html</id>
-    <published>2018-06-09T16:42:03.000Z</published>
-    <updated>2018-06-09T16:42:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来<br>来源: <a href="https://cs231n.github.io/convolutional-networks/" target="_blank" rel="noopener">CS231n Convolutional Neural Networks for Visual Recognition</a></p></blockquote><h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><p>卷积神经网络跟一般的神经网络是非常相似的.它们都由神经元组成,并且这些神经元上都有需要学习的权重和偏置项.每个神经元接收输入,执行点积,然后可选择的将输出进行非线性运算.整个网络表示了一个可微的得分函数:即从原始的图像像素到对应的类.两者都有一个损失函数(例如:SVM/Softmax),并且在一般神经网络中用到的技术也能应用到CNN中.<br>两者的区别在哪里呢?ConvNet网络假设输入是图像,所以我们能够将某些属性编码到网络结构中.这使得前馈函数更有效率并且能极大的减少网络中的参数.</p><h1 id="CNN结构概览"><a href="#CNN结构概览" class="headerlink" title="CNN结构概览"></a>CNN结构概览</h1><p><em>回顾</em>:在一般的神经网络中,神经网络接收一个输入(一个向量),然后经过一系列的隐藏层进行转换.每个隐藏层是由一组神经元组成,每个神经元都与前一层的所有神经元相连,属于同一层的神经元完全独立并且不共享任何连接.最后一层是输出层,在分类问题中,它代表了类的得分.<br>一般的神经网络不能很好的扩展到完整的图像.在CIFAR-10中,一副图像的大小是32$\times$32$\times$3,所以隐藏层中的一个神经元上将会有32$\times$32$\times$3=3072个权重.参数的数量仍然可以接受,但是全连接结构不能扩展到更大的图像上了.例如,如果图像的大小为200$\times$200$\times$3,那么一个神经元将需要200$\times$200$\times$3=120000个权重.可见,全连接神经网络需要的参数将会非常多.这会导致过拟合.<br>卷积神经网络充分利用了输入是图像的事实,并且用一个更加合理的方式约束了神经网络的结构.特别的,与一般的神经网络不同,卷积神经网络各层由三维排列的神经元组成:宽度,高度,深度(注意,这里的深度指的是激活的第三维,而不是整个神经网络的深度).例如,在CIFAR-10中的输入图像的维度是32$\times$32$\times$3.我们很快会看到,当前层的神经元仅仅连接前一层中的部分神经元.此外,对于CIFAR-10最终的输出层的维度是1$\times$1$\times$10,因为ConvNet最后会将整个图像转换为一个类得分向量,下面是可视化:<br><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neural_net2.jpeg" alt="常规神经网络"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/cnn.jpeg" alt="ConvNet"></div></div></div></div><br>上图表示一个三层的神经网络,下图表示卷积神经网络.</p><blockquote><p>A ConvNet is made up of Layers. Every Layer has a simple API: It transforms an input 3D volume to an output 3D volume with some differentiable function that may or may not have parameters.</p></blockquote><h1 id="ConvNet-层"><a href="#ConvNet-层" class="headerlink" title="ConvNet 层"></a>ConvNet 层</h1><p>就像我们上面描述的,一个简单的ConvNet是一系列层组成,ConvNet的每层通过一个可微的函数将输入转化到输出.ConvNet主要由卷积层,池化层和全连接层组成.下面是一个针对CIFAR-10的简单例子:</p><ul><li>INPUT(32$\times$32$\times$3):输入是原始图像的像素,一副图像的宽是32,长是32,并且有三个颜色通道R,G,B</li><li>卷积层:当前层的神经元只连接前一层的部分神经元.如果我们使用12个过滤器,则经过卷积层后的维度是[32$\times$32$\times$12]</li><li>RELU:对于输入采用ReLu激活函数,并不会改变输入维度,如果前一个维度是[32$\times$32$\times$12],则经过ReLu之后仍然是[32$\times$32$\times$12]</li><li>POOL:池化层会在空间维度上执行下采样,这会导致维度变化,[16$\times$16$\times$12],但是注意最后一维没有改变</li><li><p>FC(全连接层):这是一个全连接的结构,最后的输出是[1$\times$1$\times$10].<br>卷积神经网络就是将原始的像素图像经过一层一层的计算,最后得到最终的分类得分.注意有些层需要参数,而有些层不需要参数.CONV/FC层不仅仅对于输入进行激活,同时需要将权重和偏置作用在输入上.而RELU/POOL只是一个固定的函数,并没有参数.<br>总结:</p></li><li><p>卷积神经网络就是一系列层组成,将输入图像体积转换为输出体积(体积表面了维度)</p></li><li>卷积神经网路包括完全不同的层(e.g. CONV/FC/RELU/POOl)</li><li>每一层通过一个可微的函数将3D volume的输入转换为3D volume的输出</li><li>有些层需要参数,有些不需要(e.g. CONV/FC 需要, RELU/POOlL不需要)</li><li>有些层需要额外的超参数,有些不需要(e.g. CONV/FC/POOL需要,RELU不需要)</li></ul><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/convnet.jpeg" title="卷积神经网络结构图"><p>因为无法很难画出3D的部分,所以这里每一层只展示了深度部分的一片.最后给出了得分最高的五个标签.这里展示的是一个很小的 VGG网络.<a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">查看详细展示</a></p><h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>卷积层是卷积神经网络的核心部分,并且涉及了大量的计算.卷积层使用过滤器对于原图像进行卷积,过滤器每次只能针对整副图像的一部分进行计算,所以我们需要移动过滤器,遍历整个图像.这里过滤器的大小又叫做神经元的接收域.<br><em>Example 1</em>:假设输入为[32$\times$32$\times$3],过滤器大小为5$\times$5,那么卷积层中的某个神经元需要的参数为5$\times$5$\times$3 + 1=76.为什么需要这么多的参数呢?针对颜色通道R,当前过滤器对应的局部区域的点是5$\times$5=25个,有三个通道,所有总的参数为75,另外再加一个偏置项,所有一个神经元总共需要76个参数.注意这里的深度为3,这是因为输入的深度是3.</p><h2 id="Example-2-假设输入为-16-times-16-times-20-过滤器大小为3-times-3-那么卷积层中每个神经元都需要3-3-20-1-180个参数"><a href="#Example-2-假设输入为-16-times-16-times-20-过滤器大小为3-times-3-那么卷积层中每个神经元都需要3-3-20-1-180个参数" class="headerlink" title="Example 2:假设输入为[16$\times$16$\times$20],过滤器大小为3$\times$3,那么卷积层中每个神经元都需要3*3*20 + 1=180个参数."></a><em>Example 2</em>:假设输入为[16$\times$16$\times$20],过滤器大小为3$\times$3,那么卷积层中每个神经元都需要3*3*20 + 1=180个参数.</h2><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/depthcol.jpeg" title="卷积层"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/neuron_model.jpeg" title="神经元"></div></div></div></div><p>第一张图展示了卷积层,可以看到一个神经元连接了原图像的局部区域,但是连接了所有的深度(这是是三个颜色通道).这里展示了五个神经元,这五个神经元都连接到了图像的同一个局域上.第二张图展示了神经元的计算.<br><strong>Spatial arrangement</strong> 前面我们仅仅讨论了卷积层中的每个神经元如何连接到前一层,我们还没有讨论在卷积层的输出中有多少个神经元.深度,步长,0值填充这些超参数控制着卷积层的输出的大小</p><ol><li>卷积层输出的深度等于过滤器的数量,而每个过滤器就是去寻找输入到卷积层数据的不同之处.如果输入是原始图像,那么过滤器就是去寻找不同方向的边,颜色等.</li><li>步长是过滤器移动的长度,一般常用的是1和2</li><li>0值填充就是在卷积层的输入的边界上填充0值,使用0值填充使得我们能够控制经过卷积层之后的空间大小.<br>下面的公式可以用来计算卷积层输出的空间大小<script type="math/tex; mode=display">(W - F + 2P)/S + 1</script>其中W(输入数据的大小),F(卷积层神经元的接收域大小),S(步长),P(零值填充的宽度).例如输入为7$\times$7,过滤器为3$\times$3,步长为1,不填充,则得出输出为5$\times$5.当步长变为2时,那么输出变为3$\times$3.</li></ol><hr><img src="/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition/stride.jpeg" title="空间排列"><p>这里的输入只有一个x轴,输入为[1,2,-1,1,-3],过滤器大小为3,采用零值填充.所以W=5,F=3,P=1.图片最右侧是过滤器的权重,偏置为0.左图:步长为1,最后得到的输出的尺寸为5;右图:步长为2,最后得到的输出尺寸为3.所有黄色的神经元共享相同的参数</p><hr><p><em>Use of zero-padding</em>.当步长为1(即S=1),设置$P=(F-1)/2$,这样卷积层的输入跟输出将会有相同大小的空间.<br><em>Constraints on strides</em>.</p><h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><h2 id="Normalization-Layer"><a href="#Normalization-Layer" class="headerlink" title="Normalization Layer"></a>Normalization Layer</h2><h2 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h2><h2 id="全连接层转变为卷积层"><a href="#全连接层转变为卷积层" class="headerlink" title="全连接层转变为卷积层"></a>全连接层转变为卷积层</h2><h1 id="ConvNet-结构"><a href="#ConvNet-结构" class="headerlink" title="ConvNet 结构"></a>ConvNet 结构</h1><h2 id="层模式"><a href="#层模式" class="headerlink" title="层模式"></a>层模式</h2><h2 id="层大小模式"><a href="#层大小模式" class="headerlink" title="层大小模式"></a>层大小模式</h2><h2 id="常用CNN"><a href="#常用CNN" class="headerlink" title="常用CNN"></a>常用CNN</h2><h2 id="计算考虑"><a href="#计算考虑" class="headerlink" title="计算考虑"></a>计算考虑</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;这是一篇翻译文章,但是也不全是,主要是读了文章之后,用自己的话将其复述出来&lt;br&gt;来源: &lt;a href=&quot;https://cs231n.github.io/convolutional-networks/&quot; target=&quot;_blank&quot; rel=
-      
-    
-    </summary>
-    
-      <category term="deep learning" scheme="https://lightnine/github.io/categories/deep-learning/"/>
-    
-    
-      <category term="CNN" scheme="https://lightnine/github.io/tags/CNN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo搭建github博客多设备更新</title>
-    <link href="https://lightnine/github.io/hexo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2%E5%A4%9A%E8%AE%BE%E5%A4%87%E6%9B%B4%E6%96%B0.html"/>
-    <id>https://lightnine/github.io/hexo搭建github博客多设备更新.html</id>
-    <published>2018-06-02T12:01:32.000Z</published>
-    <updated>2018-09-01T08:49:26.229Z</updated>
-    
-    <content type="html"><![CDATA[<p>前段时间由于电脑重新安装了系统,导致自己的博客文件丢失,而github上面的只有发布后的文件,没有博客的源文件。想要恢复到源文件至今还没有找到解决方法,好在原来的博客内容不多,丢失了也无所谓了。但是以后要是换电脑了,这种问题怎么解决呢?今天介绍一个解决方案。<br>其实方法很简单,首先应该有两个分支,一个分支用来保存发布后的内容,一个分支用来保存源文件.这里用master分支保存发布后的内容,hexo分支保存源文件内容.</p><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>设备A上搭建github博客</p><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>在博客根目录下,打开_config.yml,添加如下内容</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">git@github.com:youname/youname.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><blockquote><p>可以看到现在已经有一个master分支,但是这时候个人博客还不是一个git目录</p></blockquote><p>提交代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// hexo编译源文件，生成静态文件，也可以分开执行</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><blockquote><p>hexo clean: 清空博客缓存<br>hexo g(hexo generator 的简写):生成静态文件<br>hexo d(hexo deploy的简写): 部署文件,这条命令会使用第一步中的配置信息进行部署</p></blockquote><p>现在打开yourname.github.io就能够看到你的博客了</p><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>因为我用的是next主题(其他主题做相似处理).删除next文件下的.git文件夹,这是因为我们在要我们的博客下创建.git,如果子目录下也有.git,会有问题.然后执行以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// git初始化</span><br><span class="line">git init</span><br><span class="line">// 新建分支并切换到新建的分支</span><br><span class="line">git checkout -b 分支名</span><br><span class="line">// 添加所有本地文件到git</span><br><span class="line">git add .</span><br><span class="line">// git提交</span><br><span class="line">git commit -m <span class="string">"提交说明"</span></span><br><span class="line">// 文件推送到hexo分支</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure><blockquote><p>以后操作都是在hexo分支中,当我们修改了我们的博客内容时,先执行hexo clean &amp;&amp; hexo g &amp;&amp; hexo d ,这个命令用来将本地博客发布到github上<br>然后在将本地内容提交到hexo分支中</p></blockquote><h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>假设我们需要在电脑B上搭建我们之前的博客内容.我们需要拉取我们的hexo分支,因为hexo分支是源文件,master可以不用拉取</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆分支到本地</span><br><span class="line">git <span class="built_in">clone</span> -b hexo https://github.com/用户名/仓库名.git</span><br><span class="line">// 进入博客文件夹</span><br><span class="line"><span class="built_in">cd</span> youname.github.io</span><br><span class="line">// 安装依赖</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><p>电脑B上编辑博客内容,静态文件提交到master分支,源文件提交到hexo分支</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//博文提交到master上面。</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">//源文件提交到hexo分支上面。</span><br><span class="line">// 添加源文件</span><br><span class="line">git add .</span><br><span class="line">// git提交</span><br><span class="line">git commit -m <span class="string">""</span></span><br><span class="line">// 先拉原来Github分支上的源文件到本地，进行合并</span><br><span class="line">git pull origin hexo</span><br><span class="line">// 比较解决前后版本冲突后，push源文件到Github的分支</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure><h2 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h2><p>在电脑A上可以同步hexo分支,开始更新博客</p><p><strong>注意: 以后操作都是在hexo分支中,当我们修改了我们的博客内容时,先执行hexo clean &amp;&amp; hexo g &amp;&amp; hexo d ,这个命令用来将本地博客发布到github上<br>然后在将本地内容提交到hexo分支中</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;前段时间由于电脑重新安装了系统,导致自己的博客文件丢失,而github上面的只有发布后的文件,没有博客的源文件。想要恢复到源文件至今还没有找到解决方法,好在原来的博客内容不多,丢失了也无所谓了。但是以后要是换电脑了,这种问题怎么解决呢?今天介绍一个解决方案。&lt;br&gt;其实方法
-      
-    
-    </summary>
-    
-      <category term="hexo" scheme="https://lightnine/github.io/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://lightnine/github.io/tags/hexo/"/>
     
   </entry>
   
