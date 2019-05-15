@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://lightnine/java-synchronized-keyword/MyClassInstance.png">
 <meta property="og:image" content="https://lightnine/java-synchronized-keyword/MyClassStatic.png">
 <meta property="og:image" content="https://lightnine/java-synchronized-keyword/MyClass1.png">
-<meta property="og:updated_time" content="2019-05-11T07:32:22.968Z">
+<meta property="og:updated_time" content="2019-05-11T07:38:31.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java synchronized keyword">
 <meta name="twitter:description" content="java synchronized关键字在平常进行java并发程序的开发过程中，synchronized关键字的出现频率很高。但是synchronized底层是如何实现的，synchronized都有哪些具体的用法。本篇将会在下面进行详细讲解。synchronized关键字主要是用来进行同步操作。synchronized关键字修饰的内容，每次都只能有一个线程进入，如果其他线程想要进入相同的代码块，">
@@ -366,7 +366,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-11T15:32:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-11T15:38:31+08:00">
                 2019-05-11
               </time>
             
@@ -465,9 +465,9 @@
 <h2 id="synchronized用在代码块上"><a href="#synchronized用在代码块上" class="headerlink" title="synchronized用在代码块上"></a>synchronized用在代码块上</h2><p>如果synchronized关键字用在代码块上，会在其之后括号中的对象获取锁。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">            System.out.println(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(MyClass.class) &#123;</span><br><span class="line">            System.out.print(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在上面的代码中，在方法log中，当线程进入log方法，然后执行synchronized关键字修饰的代码块。线程会尝试获取当前类实例上的锁，因为括号中使用的是this关键字。而在func方法中，线程会尝试获取MyClass类的锁。注意这两个锁是不同的。所以一个线程可以执行log中的同步代码块，而同时另一个线程也可以执行func中的同步代码块。<br>反编译结果如下(运行命令:<code>javap -v MyClass.class</code>):<br><img src="/java-synchronized-keyword/MyClass1.png" title="java-memory-model"><br>可以看到在方法的签名中是没有ACC_SYNCHRONIZED的。但是在代码中出现了monitorenter和monitorexit。<br><strong>monitorenter</strong>：</p>
 <blockquote>
-<p>Each object is associated with a monitor. A monitor is locked if and only if it has an owner. The thread that executes monitorenter attempts to gain ownership of the monitor associated with objectref, as follows:<br>• If the entry count of the monitor associated with objectref is zero, the thread enters the monitor and sets its entry count to one. The thread is then the owner of the monitor.<br>• If the thread already owns the monitor associated with objectref, it reenters the monitor, incrementing its entry count.<br>• If another thread already owns the monitor associated with objectref, the thread blocks until the monitor’s entry count is zero, then tries again to gain ownership.<br>引用中的内容来自JVM规范。这段话的大概意思为：</p>
+<p>Each object is associated with a monitor. A monitor is locked if and only if it has an owner. The thread that executes monitorenter attempts to gain ownership of the monitor associated with objectref, as follows:<br>• If the entry count of the monitor associated with objectref is zero, the thread enters the monitor and sets its entry count to one. The thread is then the owner of the monitor.<br>• If the thread already owns the monitor associated with objectref, it reenters the monitor, incrementing its entry count.<br>• If another thread already owns the monitor associated with objectref, the thread blocks until the monitor’s entry count is zero, then tries again to gain ownership.</p>
 </blockquote>
-<p>每个对象有一个监视器锁（monitor）。当monitor被占用时就会处于锁定状态，线程执行monitorenter指令时尝试获取monitor的所有权，过程如下：</p>
+<p>引用中的内容来自JVM规范。这段话的大概意思为：<br>每个对象有一个监视器锁（monitor）。当monitor被占用时就会处于锁定状态，线程执行monitorenter指令时尝试获取monitor的所有权，过程如下：</p>
 <ol>
 <li>如果monitor的进入数为0，则该线程进入monitor，然后将进入数设置为1，该线程即为monitor的所有者。</li>
 <li>如果线程已经占有该monitor，只是重新进入，则进入monitor的进入数加1.</li>
@@ -538,6 +538,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Thread-Signaling.html" rel="prev" title="Thread Signaling">
+                Thread Signaling <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -615,7 +619,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -746,7 +750,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共46.0k字</span>
+  <span class="post-count">博客全站共46.1k字</span>
 </div>
 
         

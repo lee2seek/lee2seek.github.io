@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="IO,BIO,NIO," />
+  <meta name="keywords" content="并发," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Java BIO NIO AIO详解同步，异步，阻塞，非阻塞这几个概念理解起来确实比较困难，特别是同步和阻塞，异步和非阻塞。首先要明确的一个概念是同步和异步主要是关注的是消息通信机制，所以同步和异步主要是关注客户端和服务端两个方面的消息如何通信。而阻塞和非阻塞主要是等待调用结果时的状态，所以关注的主要是当前线程在等待结果时能够做什么，如果在等待结果时当前线程能够做其他的事，则线程是非阻塞的；如果只">
-<meta name="keywords" content="IO,BIO,NIO">
+<meta name="description" content="线程信号量及wait，notify方法本篇 通过共享对象进行信号通知忙等待wait，notify，notifyAll使用wait notify notifyAll在Object源码中的介绍浅析Object monitor的底层原理参考简书 占小狼的JVM源码分析wait实现 notify和notifyAll区别丢失信号伪唤醒多个线程等待相同的信号不要在常量字符串或全局对象上调用wait方法">
+<meta name="keywords" content="并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BIO NIO AIO详解">
-<meta property="og:url" content="https://lightnine/github.io/BIO-NIO-AIO详解.html">
+<meta property="og:title" content="Thread Signaling">
+<meta property="og:url" content="https://lightnine/github.io/Thread-Signaling.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java BIO NIO AIO详解同步，异步，阻塞，非阻塞这几个概念理解起来确实比较困难，特别是同步和阻塞，异步和非阻塞。首先要明确的一个概念是同步和异步主要是关注的是消息通信机制，所以同步和异步主要是关注客户端和服务端两个方面的消息如何通信。而阻塞和非阻塞主要是等待调用结果时的状态，所以关注的主要是当前线程在等待结果时能够做什么，如果在等待结果时当前线程能够做其他的事，则线程是非阻塞的；如果只">
+<meta property="og:description" content="线程信号量及wait，notify方法本篇 通过共享对象进行信号通知忙等待wait，notify，notifyAll使用wait notify notifyAll在Object源码中的介绍浅析Object monitor的底层原理参考简书 占小狼的JVM源码分析wait实现 notify和notifyAll区别丢失信号伪唤醒多个线程等待相同的信号不要在常量字符串或全局对象上调用wait方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T11:42:28.146Z">
+<meta property="og:updated_time" content="2019-05-15T02:26:01.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BIO NIO AIO详解">
-<meta name="twitter:description" content="Java BIO NIO AIO详解同步，异步，阻塞，非阻塞这几个概念理解起来确实比较困难，特别是同步和阻塞，异步和非阻塞。首先要明确的一个概念是同步和异步主要是关注的是消息通信机制，所以同步和异步主要是关注客户端和服务端两个方面的消息如何通信。而阻塞和非阻塞主要是等待调用结果时的状态，所以关注的主要是当前线程在等待结果时能够做什么，如果在等待结果时当前线程能够做其他的事，则线程是非阻塞的；如果只">
+<meta name="twitter:title" content="Thread Signaling">
+<meta name="twitter:description" content="线程信号量及wait，notify方法本篇 通过共享对象进行信号通知忙等待wait，notify，notifyAll使用wait notify notifyAll在Object源码中的介绍浅析Object monitor的底层原理参考简书 占小狼的JVM源码分析wait实现 notify和notifyAll区别丢失信号伪唤醒多个线程等待相同的信号不要在常量字符串或全局对象上调用wait方法">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://lightnine/github.io/BIO-NIO-AIO详解.html"/>
+  <link rel="canonical" href="https://lightnine/github.io/Thread-Signaling.html"/>
 
 
 
 
 
-  <title>BIO NIO AIO详解 | 个人博客</title>
+  <title>Thread Signaling | 个人博客</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/BIO-NIO-AIO详解.html">
+    <link itemprop="mainEntityOfPage" href="https://lightnine/github.io/Thread-Signaling.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BIO NIO AIO详解</h1>
+          <h1 class="post-title" itemprop="name headline">Thread Signaling</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T16:20:19+08:00">
-                2019-03-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T10:52:48+08:00">
+                2019-05-14
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-24T19:42:28+08:00">
-                2019-03-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-15T10:26:01+08:00">
+                2019-05-15
               </time>
             
           </span>
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,260
+                  107
                 </span>
               
 
@@ -428,7 +428,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -448,26 +448,9 @@
       
 
       
-        <h1 id="Java-BIO-NIO-AIO详解"><a href="#Java-BIO-NIO-AIO详解" class="headerlink" title="Java BIO NIO AIO详解"></a>Java BIO NIO AIO详解</h1><h2 id="同步，异步，阻塞，非阻塞"><a href="#同步，异步，阻塞，非阻塞" class="headerlink" title="同步，异步，阻塞，非阻塞"></a>同步，异步，阻塞，非阻塞</h2><p>这几个概念理解起来确实比较困难，特别是同步和阻塞，异步和非阻塞。首先要明确的一个概念是同步和异步主要是关注的是消息通信机制，所以同步和异步主要是关注客户端和服务端两个方面的消息如何通信。而阻塞和非阻塞主要是等待调用结果时的状态，所以关注的主要是当前线程在等待结果时能够做什么，如果在等待结果时当前线程能够做其他的事，则线程是非阻塞的；如果只能等待返回结果，则当前线程是阻塞的。下面举个例子来具体说明一下：<br>比如你跟书店老板打电话，确认是否书店中有哈利波特这本书。书店老板电话没有挂断，说你等一下，我现在查一下，你一直在等待，此时就是一种同步通信。而如果老板说我晚点电话通知你，然后挂断电话，此时就是异步通信。<br>让我们在换一个视角，还是打电话确定是否有哈利波特这本书这件事情。在打电话的过程中，你什么都没有干，只是一直在等待，那么此时你就是处于阻塞状态。而如果此时你正在看电视，此时你就是非阻塞状态，但是需要不定时的检查一下电话那边有没有回复。</p>
-<blockquote>
-<p>所谓同步，就是在发出一个<strong>调用</strong>时，在没有得到结果之前，该<strong>调用</strong>就不返回。但是一旦调用返回，就得到返回值了。换句话说，就是由<strong>调用者</strong>主动等待这个<strong>调用</strong>的结果.<br>而异步则是相反，<strong>调用</strong>在发出之后，这个调用就直接返回了，所以没有返回结果。换句话说，当一个异步过程调用发出后，调用者不会立刻得到结果。而是在<strong>调用</strong>发出后，<strong>被调用者</strong>通过状态、通知来通知调用者，或通过回调函数处理这个调用。<br>阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。<br>在IO操作中，有以下四种组合：</p>
-</blockquote>
-<ol>
-<li>同步阻塞IO：调用者发起IO操作请求，等待IO操作完成(阻塞)。IO操作的过程需要等待，等待服务端返回结果，操作执行完成后返回结果(同步)</li>
-<li>同步非阻塞：调用者发起IO操作请求，询问IO操作的的状态，如果未完成，则立即返回；如果完成，则返回结果(非阻塞)。IO操作的过程需要等待执行完成才返回结果(同步)</li>
-<li>异步阻塞：调用者发起IO操作请求，等待IO操作完成在返回(阻塞)。IO操作的过程不需要等待，操作完成后通过通知或者回调获取结果(异步)</li>
-<li>异步非阻塞：调用者发起IO操作请求，询问IO操作的状态，如果未完成，则立即返回；如果完成，则返回结果(非阻塞)。IO操作的过程不需要等待，操作完成后通过通知或回调获得结果(异步)<br>在下面的具体介绍中，我会进行具体的说明。</li>
-</ol>
-<h2 id="Java-IO-操作类"><a href="#Java-IO-操作类" class="headerlink" title="Java IO 操作类"></a>Java IO 操作类</h2><p>Java中进行IO操作的类一般分为以下四类：</p>
-<ol>
-<li>字节流的输入和输出：InputStream和OutputStream</li>
-<li>字符流的输入和输出</li>
-<li>网络编程Socket</li>
-<li></li>
-</ol>
-<h2 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h2><p>首先BIO是同步阻塞调用。阻塞是因为服务端在调用accept方法时，服务端会一直阻塞在accept方法上，直到在对应的端口上接收到数据；同步是因为客户端会一直等待服务端执行完成才返回结果。可以想一下JavaScript中的Ajax请求，在异步Ajax请求发出后，浏览器会执行接下来的JS代码，直到服务端发回处理结果，然后执行对应的回调函数。这是典型的异步请求。</p>
-<h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><p>NIO(New IO or Non-Block IO)是一种同步非阻塞的通信模式。NIO客户端和服务器之间通过Channel通信。NIO可以在Channel进行读写操作。这些Channel都会被注册在Selector多路复用器上。Selector通过一个线程不停的轮询这些Channel。找出已经准备就绪的Channel执行IO操作。说是非阻塞是因为NIO通过一个线程轮询，实现千万个客户端的请求。说是同步是因为客户端一直在等待服务端执行完成才返回结果。</p>
-<h2 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2>
+        <h1 id="线程信号量及wait，notify方法"><a href="#线程信号量及wait，notify方法" class="headerlink" title="线程信号量及wait，notify方法"></a>线程信号量及wait，notify方法</h1><p>本篇</p>
+<h2 id="通过共享对象进行信号通知"><a href="#通过共享对象进行信号通知" class="headerlink" title="通过共享对象进行信号通知"></a>通过共享对象进行信号通知</h2><h2 id="忙等待"><a href="#忙等待" class="headerlink" title="忙等待"></a>忙等待</h2><h2 id="wait，notify，notifyAll使用"><a href="#wait，notify，notifyAll使用" class="headerlink" title="wait，notify，notifyAll使用"></a>wait，notify，notifyAll使用</h2><h3 id="wait-notify-notifyAll在Object源码中的介绍"><a href="#wait-notify-notifyAll在Object源码中的介绍" class="headerlink" title="wait notify notifyAll在Object源码中的介绍"></a>wait notify notifyAll在Object源码中的介绍</h3><h3 id="浅析Object-monitor的底层原理"><a href="#浅析Object-monitor的底层原理" class="headerlink" title="浅析Object monitor的底层原理"></a>浅析Object monitor的底层原理</h3><p>参考简书 占小狼的JVM源码分析wait实现</p>
+<h3 id="notify和notifyAll区别"><a href="#notify和notifyAll区别" class="headerlink" title="notify和notifyAll区别"></a>notify和notifyAll区别</h3><h2 id="丢失信号"><a href="#丢失信号" class="headerlink" title="丢失信号"></a>丢失信号</h2><h2 id="伪唤醒"><a href="#伪唤醒" class="headerlink" title="伪唤醒"></a>伪唤醒</h2><h2 id="多个线程等待相同的信号"><a href="#多个线程等待相同的信号" class="headerlink" title="多个线程等待相同的信号"></a>多个线程等待相同的信号</h2><h2 id="不要在常量字符串或全局对象上调用wait方法"><a href="#不要在常量字符串或全局对象上调用wait方法" class="headerlink" title="不要在常量字符串或全局对象上调用wait方法"></a>不要在常量字符串或全局对象上调用wait方法</h2>
       
     </div>
     
@@ -487,7 +470,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lightnine/github.io/BIO-NIO-AIO详解.html" title="BIO NIO AIO详解">https://lightnine/github.io/BIO-NIO-AIO详解.html</a>
+    <a href="https://lightnine/github.io/Thread-Signaling.html" title="Thread Signaling">https://lightnine/github.io/Thread-Signaling.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -503,11 +486,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/IO/" rel="tag"><i class="fa fa-tag"></i> IO</a>
-          
-            <a href="/tags/BIO/" rel="tag"><i class="fa fa-tag"></i> BIO</a>
-          
-            <a href="/tags/NIO/" rel="tag"><i class="fa fa-tag"></i> NIO</a>
+            <a href="/tags/并发/" rel="tag"><i class="fa fa-tag"></i> 并发</a>
           
         </div>
       
@@ -520,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019-plan-and-learn.html" rel="next" title="2019-plan-and-learn">
-                <i class="fa fa-chevron-left"></i> 2019-plan-and-learn
+              <a href="/java-synchronized-keyword.html" rel="next" title="java synchronized keyword">
+                <i class="fa fa-chevron-left"></i> java synchronized keyword
               </a>
             
           </div>
@@ -529,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/pip以及conda镜像源修改及命令使用.html" rel="prev" title="pip以及conda镜像源修改及命令使用">
-                pip以及conda镜像源修改及命令使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-BIO-NIO-AIO详解"><span class="nav-number">1.</span> <span class="nav-text">Java BIO NIO AIO详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步，异步，阻塞，非阻塞"><span class="nav-number">1.1.</span> <span class="nav-text">同步，异步，阻塞，非阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-IO-操作类"><span class="nav-number">1.2.</span> <span class="nav-text">Java IO 操作类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIO"><span class="nav-number">1.3.</span> <span class="nav-text">BIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO"><span class="nav-number">1.4.</span> <span class="nav-text">NIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AIO"><span class="nav-number">1.5.</span> <span class="nav-text">AIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.7.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线程信号量及wait，notify方法"><span class="nav-number">1.</span> <span class="nav-text">线程信号量及wait，notify方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过共享对象进行信号通知"><span class="nav-number">1.1.</span> <span class="nav-text">通过共享对象进行信号通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忙等待"><span class="nav-number">1.2.</span> <span class="nav-text">忙等待</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait，notify，notifyAll使用"><span class="nav-number">1.3.</span> <span class="nav-text">wait，notify，notifyAll使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wait-notify-notifyAll在Object源码中的介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">wait notify notifyAll在Object源码中的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅析Object-monitor的底层原理"><span class="nav-number">1.3.2.</span> <span class="nav-text">浅析Object monitor的底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#notify和notifyAll区别"><span class="nav-number">1.3.3.</span> <span class="nav-text">notify和notifyAll区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#丢失信号"><span class="nav-number">1.4.</span> <span class="nav-text">丢失信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪唤醒"><span class="nav-number">1.5.</span> <span class="nav-text">伪唤醒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个线程等待相同的信号"><span class="nav-number">1.6.</span> <span class="nav-text">多个线程等待相同的信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不要在常量字符串或全局对象上调用wait方法"><span class="nav-number">1.7.</span> <span class="nav-text">不要在常量字符串或全局对象上调用wait方法</span></a></li></ol></li></ol></div>
             
 
           </div>
